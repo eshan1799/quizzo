@@ -6,112 +6,7 @@ class QuestionContainer extends Component {
         playerCount: 0,
         questionCount: 0,
         leaderboard:[],
-        players: [
-            {name: "player1",
-            questions: [
-                 {
-                     category: "Science",
-                     type: "multiple",
-                     difficulty: "easy",
-                     question: "What colour is the sun",
-                     correct_answer: "Yellow",
-                     incorrect_answers: [
-                         "White",
-                         "Green",
-                         "Blue"
-                     ]
-                },
-                {
-                    category: "Science",
-                    type: "multiple",
-                    difficulty: "easy",
-                    question: "What colour is the moon",
-                    correct_answer: "Grey",
-                    incorrect_answers: [
-                        "Yellow",
-                        "Green",
-                        "Blue"
-                    ]
-               },
-               {
-                     category: "Science",
-                     type: "multiple",
-                     difficulty: "easy",
-                     question: "What colour is the sun",
-                     correct_answer: "Yellow",
-                     incorrect_answers: [
-                         "White",
-                         "Green",
-                         "Blue"
-                     ]
-                },
-                {
-                    category: "Science",
-                    type: "multiple",
-                    difficulty: "easy",
-                    question: "What colour is the moon",
-                    correct_answer: "Grey",
-                    incorrect_answers: [
-                        "Yellow",
-                        "Green",
-                        "Blue"
-                    ]
-               }
-                ]  
-            },
-            {name: "player2",
-            questions: [
-                 {
-                     category: "Science",
-                     type: "multiple",
-                     difficulty: "easy",
-                     question: "What colour is the sun",
-                     correct_answer: "Yellow",
-                     incorrect_answers: [
-                         "White",
-                         "Green",
-                         "Blue"
-                     ]
-                },
-                {
-                    category: "Science",
-                    type: "multiple",
-                    difficulty: "easy",
-                    question: "What colour is the moon",
-                    correct_answer: "Grey",
-                    incorrect_answers: [
-                        "Yellow",
-                        "Green",
-                        "Blue"
-                    ]
-               },
-               {
-                     category: "Science",
-                     type: "multiple",
-                     difficulty: "easy",
-                     question: "What colour is the sun",
-                     correct_answer: "Yellow",
-                     incorrect_answers: [
-                         "White",
-                         "Green",
-                         "Blue"
-                     ]
-                },
-                {
-                    category: "Science",
-                    type: "multiple",
-                    difficulty: "easy",
-                    question: "What colour is the moon",
-                    correct_answer: "Grey",
-                    incorrect_answers: [
-                        "Yellow",
-                        "Green",
-                        "Blue"
-                    ]
-               }
-                ]
-            }
-        ]
+        players: []
     }
 
     componentDidMount() {
@@ -149,7 +44,7 @@ class QuestionContainer extends Component {
 
       checkAnswer  = (answer) => {
         const corrAns = this.state.players[this.state.playerCount].questions[this.state.questionCount].correct_answer;
-        const idx = this.state.playerCount
+        //const idx = this.state.playerCount
         if (answer === corrAns){
             let newScore = [...this.state.score];
             newScore[this.state.playerCount]++
