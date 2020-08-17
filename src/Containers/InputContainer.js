@@ -20,7 +20,8 @@ class InputContainer extends Component {
   handleOpenModal() {
     this.setState({ showModal: true });
   }
-  handleCloseModal() {
+  handleCloseModal(e) {
+    e.preventDefault();
     this.setState({ showModal: false });
 
     let category;
@@ -77,7 +78,7 @@ class InputContainer extends Component {
           isOpen={this.state.showModal}
           contentLabel="Minimal Modal Example"
         >
-          <form>
+          <form onSubmit={() => this.handleCloseModal(event)}>
             <label htmlFor="name">Name</label>
             <input
               id="name"
@@ -112,9 +113,10 @@ class InputContainer extends Component {
               <option value="hard">Hard</option>
             </select>
             {/* <input type='submit' value='submit'>Add</input> */}
-            <button type="submit" onClick={this.handleCloseModal}>
+            {/* <button type="submit" onClick={this.handleCloseModal}>
               Close Modal
-            </button>
+            </button> */}
+            <input type="submit"></input>
           </form>
         </ReactModal>
 
