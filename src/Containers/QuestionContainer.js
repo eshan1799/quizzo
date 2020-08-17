@@ -148,11 +148,14 @@ class QuestionContainer extends Component {
       };
 
       checkAnswer  = (answer) => {
-          const corrAns = this.state.players[this.state.playerCount].questions[this.state.questionCount].correct_answer;
+        const corrAns = this.state.players[this.state.playerCount].questions[this.state.questionCount].correct_answer;
+        const idx = this.state.playerCount
         if (answer === corrAns){
-            this.setState(prevState => ({
-                score: ++prevState.score[this.state.playerCount]
-            }), console.log(this.state.players[this.state.playerCount].score))
+            let newScore = [...this.state.score];
+            newScore[this.state.playerCount]++
+            this.setState({
+                score: newScore
+            }, () => console.log(this.state.score))
         }
       }
       
