@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import QuestionComponent from '../Components/QuestionComponent'
 
 class QuestionContainer extends Component {
-    state = {
+    state = { 
         playerCount: 0,
         questionCount: 0,
         leaderboard:[],
         players: [
             {name: "player1",
-             questions: [
+            questions: [
                  {
                      category: "Science",
                      type: "multiple",
@@ -57,11 +57,10 @@ class QuestionContainer extends Component {
                         "Blue"
                     ]
                }
-                ],
-             score:0   
+                ]  
             },
-             {name: "player2",
-             questions: [
+            {name: "player2",
+            questions: [
                  {
                      category: "Science",
                      type: "multiple",
@@ -110,41 +109,63 @@ class QuestionContainer extends Component {
                         "Blue"
                     ]
                }
-                ],
-             score:0
-             }
+                ]
+            }
         ]
     }
-    
-    changeQuestionHandler = () => {
-        //if (this.state.players[this.state.playerCount] !== undefined) {
-        if (this.state.questionCount + 1 < this.state.players[this.state.playerCount].questions.length ) {
-            // console.log(`Question: ${this.state.questionCount}`)
-            this.setState(prev => ({ questionCount: ++prev.questionCount }), () => console.log(`Question: ${this.state.questionCount}`))
-        } else if (this.state.playerCount + 1 < this.state.players.length) {
-            this.setState({ questionCount: 0 })
-            
-            this.setState(prev => { return ({ playerCount: ++prev.playerCount }), console.log(`Player: ${this.state.playerCount}`) })
-        }
-                //console.log(`Player: ${this.state.playerCount}`)
-        else {
-                console.log("end")
-            }
-        
-            //console.log(`Question Async?: ${this.state.questionCount}`)
-        //}   
-        //console.log(`Question Async2?: ${this.state.questionCount}`)
-    }
 
+    componentDidMount() {
+        let scoreArr = []
+        for (const player of this.state.players) {
+            scoreArr.push(0)
+        }
+        this.setState({score:scoreArr})
+    }
+    
+    
+    changeQuestionHandler = (event) => {
+        event.preventDefault()
+        console.log(`Player: ${this.state.playerCount + 1}, Question: ${this.state.questionCount + 1}`);
+        if (
+          this.state.questionCount + 1 <
+          this.state.players[this.state.playerCount].questions.length
+        ) {
+          this.setState((prev) => ({ questionCount: ++prev.questionCount }));
+        } else if (this.state.playerCount + 1 < this.state.players.length) {
+            this.setState({ questionCount: 0 });
+            
+            this.setState((prev) => {
+                return { playerCount: ++prev.playerCount };
+          });
+        } else {
+          console.log("Quiz End");
+        }
+
+        // Function to check if answer is correct
+        this.checkAnswer(event.target.answer.value)
+
+        event.target.reset()
+      };
+
+      checkAnswer  = (answer) => {
+          const corrAns = this.state.players[this.state.playerCount].questions[this.state.questionCount].correct_answer;
+        if (answer === corrAns){
+            this.setState(prevState => ({
+                score: ++prevState.score[this.state.playerCount]
+            }), console.log(this.state.players[this.state.playerCount].score))
+        }
+      }
+      
     render() {
         return (
             <div>
                 <QuestionComponent 
-                onclick={this.changeQuestionHandler} 
-                player={this.state.players[this.state.playerCount]} 
-                question={this.state.players[this.state.playerCount].questions[this.state.questionCount].question}
-                correct_answer={this.state.players[this.state.playerCount].questions[this.state.questionCount].correct_answer}
-                incorrect_answer={this.state.players[this.state.playerCount].questions[this.state.questionCount].incorrect_answers}
+                    on_submit={this.changeQuestionHandler} 
+                    question_no={this.state.questionCount + 1}
+                    name={this.state.players[this.state.playerCount].name} 
+                    question={this.state.players[this.state.playerCount].questions[this.state.questionCount].question}
+                    correct_answer={this.state.players[this.state.playerCount].questions[this.state.questionCount].correct_answer}
+                    incorrect_answers={this.state.players[this.state.playerCount].questions[this.state.questionCount].incorrect_answers}
                 />
             </div>
         )

@@ -6,8 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>New React App</h1>
-        <h2>Happy Coding</h2>
+        <h1>Quiz!</h1>
         <QuestionComponent/>
 
       </>
