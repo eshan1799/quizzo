@@ -6,89 +6,21 @@ class QuestionContainer extends Component {
     playerCount: 0,
     questionCount: 0,
     leaderboard: [],
-    players: [
-      {
-        name: "player1",
-        questions: [
-          {
-            category: "Science",
-            type: "multiple",
-            difficulty: "easy",
-            question: "What colour is the sun",
-            correct_answer: "Yellow",
-            incorrect_answers: ["White", "Green", "Blue"],
-          },
-          {
-            category: "Science",
-            type: "multiple",
-            difficulty: "easy",
-            question: "What colour is the moon",
-            correct_answer: "Grey",
-            incorrect_answers: ["Yellow", "Green", "Blue"],
-          },
-          {
-            category: "Science",
-            type: "multiple",
-            difficulty: "easy",
-            question: "What colour is the sun",
-            correct_answer: "Yellow",
-            incorrect_answers: ["White", "Green", "Blue"],
-          },
-          {
-            category: "Science",
-            type: "multiple",
-            difficulty: "easy",
-            question: "What colour is the moon",
-            correct_answer: "Grey",
-            incorrect_answers: ["Yellow", "Green", "Blue"],
-          },
-        ],
-        score: 0,
-      },
-      {
-        name: "player2",
-        questions: [
-          {
-            category: "Science",
-            type: "multiple",
-            difficulty: "easy",
-            question: "What colour is the sun",
-            correct_answer: "Yellow",
-            incorrect_answers: ["White", "Green", "Blue"],
-          },
-          {
-            category: "Science",
-            type: "multiple",
-            difficulty: "easy",
-            question: "What colour is the moon",
-            correct_answer: "Grey",
-            incorrect_answers: ["Yellow", "Green", "Blue"],
-          },
-          {
-            category: "Science",
-            type: "multiple",
-            difficulty: "easy",
-            question: "What colour is the sun",
-            correct_answer: "Yellow",
-            incorrect_answers: ["White", "Green", "Blue"],
-          },
-          {
-            category: "Science",
-            type: "multiple",
-            difficulty: "easy",
-            question: "What colour is the moon",
-            correct_answer: "Grey",
-            incorrect_answers: ["Yellow", "Green", "Blue"],
-          },
-        ],
-        score: 0,
-      },
-    ],
+    players: [],
   };
 
-  changeQuestionHandler = () => {
+  componentDidMount() {
+    let scoreArr = [];
+    for (const player of this.state.players) {
+      scoreArr.push(0);
+    }
+    this.setState({ score: scoreArr });
+  }
+
+  changeQuestionHandler = (event) => {
+    event.preventDefault();
     console.log(
-      `Player: ${this.state.playerCount + 1} , Question: ${
+      `Player: ${this.state.playerCount + 1}, Question: ${
         this.state.questionCount + 1
       }`
     );
@@ -106,14 +38,37 @@ class QuestionContainer extends Component {
     } else {
       console.log("Quiz End");
     }
+
+    // Function to check if answer is correct
+    this.checkAnswer(event.target.answer.value);
+
+    event.target.reset();
+  };
+
+  checkAnswer = (answer) => {
+    const corrAns = this.state.players[this.state.playerCount].questions[
+      this.state.questionCount
+    ].correct_answer;
+    //const idx = this.state.playerCount
+    if (answer === corrAns) {
+      let newScore = [...this.state.score];
+      newScore[this.state.playerCount]++;
+      this.setState(
+        {
+          score: newScore,
+        },
+        () => console.log(this.state.score)
+      );
+    }
   };
 
   render() {
     return (
       <div>
         <QuestionComponent
-          onclick={this.changeQuestionHandler}
-          player={this.state.players[this.state.playerCount]}
+          on_submit={this.changeQuestionHandler}
+          question_no={this.state.questionCount + 1}
+          name={this.state.players[this.state.playerCount].name}
           question={
             this.state.players[this.state.playerCount].questions[
               this.state.questionCount
@@ -124,7 +79,7 @@ class QuestionContainer extends Component {
               this.state.questionCount
             ].correct_answer
           }
-          incorrect_answer={
+          incorrect_answers={
             this.state.players[this.state.playerCount].questions[
               this.state.questionCount
             ].incorrect_answers
@@ -134,4 +89,5 @@ class QuestionContainer extends Component {
     );
   }
 }
+
 export default QuestionContainer;
