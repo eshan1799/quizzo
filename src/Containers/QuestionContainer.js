@@ -113,10 +113,22 @@ class QuestionContainer extends Component {
       <div>
         <QuestionComponent
           onclick={this.changeQuestionHandler}
-          // player={this.state.players[this.state.playerCount]}
-          // question={this.state.players[this.state.playerCount].questions[this.state.questionCount].question}
-          // correct_answer={this.state.players[this.state.playerCount].questions[this.state.questionCount].correct_answer}
-          // incorrect_answer={this.state.players[this.state.playerCount].questions[this.state.questionCount].incorrect_answers}
+          player={this.state.players[this.state.playerCount]}
+          question={
+            this.state.players[this.state.playerCount].questions[
+              this.state.questionCount
+            ].question
+          }
+          correct_answer={
+            this.state.players[this.state.playerCount].questions[
+              this.state.questionCount
+            ].correct_answer
+          }
+          incorrect_answer={
+            this.state.players[this.state.playerCount].questions[
+              this.state.questionCount
+            ].incorrect_answers
+          }
         />
       </div>
     );
