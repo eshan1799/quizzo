@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-class QuesntionComponent extends Component {
+class QuestionComponent extends Component {
     render(){
-        return()
+        return(
+            <button onClick={this.props.onclick}>Click</button>
+        )
     }
 }
 
-export default QuestionContainer;
+export default QuestionComponent;
