@@ -17,3 +17,4 @@ Notes:
 - Add "Leading player name" toggle option to bottom of screen later on
 - Add regular "Pub Quiz" functionality later
 - Add option to globally choose number of questions for quiz
+- Add option to review quiz and display questions and answers 
