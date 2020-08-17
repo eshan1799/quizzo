@@ -2,6 +2,7 @@ import React from "react";
 import InputContainer from "./Containers/InputContainer";
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import "./styles/App.css";
+import QuestionComponent from "./Containers/QuestionContainer"
 class App extends React.Component {
   state = {players: []}
 
@@ -14,6 +15,9 @@ class App extends React.Component {
   render() {
     return (
       <>
+        <h1>Quiz!</h1>
+        <QuestionComponent/>
+
         <section id='welcomePage'>
           <h1>Trivia</h1>
           <AnchorLink href='#addPlayerButton'>
