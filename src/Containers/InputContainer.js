@@ -10,7 +10,7 @@ class InputContainer extends Component {
         this.state = {
             showModal: false,
             topic: 'generalKnowledge',
-            difficulty: 'easy'  
+            difficulty: 'easy'
         };
 
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -19,8 +19,35 @@ class InputContainer extends Component {
       handleOpenModal () {
         this.setState({ showModal: true });
       }
-      handleCloseModal = e => {
+      handleCloseModal () {
         this.setState({ showModal: false });
+
+        let category;
+
+        switch(this.state.topic){
+          case 'generalKnowledge':
+            category = 9;
+            break;
+          case 'sports':
+            category = 21;
+            break;
+          case 'science':
+            category = 19;
+            break;
+          case 'geography':
+            category = 22;
+            break;
+          default:
+           category = 0;  // NOT SURE WHAT TO PUT HERE
+        }
+
+        const userurl = `https://opentdb.com/api.php?amount=10&category=9&difficulty=${this.state.difficulty}&type=multiple`
+
+        fetch(userurl)
+          .then(r => r.json())
+          .then(console.log)
+          .catch(err => console.warn('Oh dear...', err))
+
       }
 
       handleInput = e => {
@@ -58,7 +85,7 @@ class InputContainer extends Component {
                             <option value="hard">Hard</option>
                         </select>
                         {/* <input type='submit' value='submit'>Add</input> */}
-                        <button type='submit' onClick={this.handleCloseModal}>Close Modal</button>                   
+                        <button type='submit' onClick={this.handleCloseModal}>Close Modal</button>
                     </form>
                 </ReactModal>
 
