@@ -6,12 +6,12 @@ class QuestionContainer extends Component {
     playerCount: 0,
     questionCount: 0,
     leaderboard: [],
-    players: [],
+    players: [{}],
   };
 
   componentDidMount() {
     let scoreArr = [];
-    for (const player of this.state.players) {
+    for (const player of this.props.state.players) {
       scoreArr.push(0);
     }
     this.setState({ score: scoreArr });
@@ -20,16 +20,19 @@ class QuestionContainer extends Component {
   changeQuestionHandler = (event) => {
     event.preventDefault();
     console.log(
-      `Player: ${this.state.playerCount + 1}, Question: ${
-        this.state.questionCount + 1
+      `Player: ${this.props.state.playerCount + 1}, Question: ${
+        this.props.state.questionCount + 1
       }`
     );
     if (
-      this.state.questionCount + 1 <
-      this.state.players[this.state.playerCount].questions.length
+      this.props.state.questionCount + 1 <
+      this.props.state.players[this.props.state.playerCount].questions.length
     ) {
       this.setState((prev) => ({ questionCount: ++prev.questionCount }));
-    } else if (this.state.playerCount + 1 < this.state.players.length) {
+    } else if (
+      this.props.state.playerCount + 1 <
+      this.props.state.players.length
+    ) {
       this.setState({ questionCount: 0 });
 
       this.setState((prev) => {
@@ -46,18 +49,17 @@ class QuestionContainer extends Component {
   };
 
   checkAnswer = (answer) => {
-    const corrAns = this.state.players[this.state.playerCount].questions[
-      this.state.questionCount
-    ].correct_answer;
-    //const idx = this.state.playerCount
+    const corrAns = this.props.state.players[this.props.state.playerCount]
+      .questions[this.props.state.questionCount].correct_answer;
+    //const idx = this.props.state.playerCount
     if (answer === corrAns) {
-      let newScore = [...this.state.score];
-      newScore[this.state.playerCount]++;
+      let newScore = [...this.props.state.score];
+      newScore[this.props.state.playerCount]++;
       this.setState(
         {
           score: newScore,
         },
-        () => console.log(this.state.score)
+        () => console.log(this.props.state.score)
       );
     }
   };
@@ -67,21 +69,21 @@ class QuestionContainer extends Component {
       <div>
         <QuestionComponent
           on_submit={this.changeQuestionHandler}
-          question_no={this.state.questionCount + 1}
-          name={this.state.players[this.state.playerCount].name}
+          question_no={this.props.state.questionCount + 1}
+          name={this.props.state.players[0].name}
           question={
-            this.state.players[this.state.playerCount].questions[
-              this.state.questionCount
+            this.props.state.players[this.props.state.playerCount].questions[
+              this.props.state.questionCount
             ].question
           }
           correct_answer={
-            this.state.players[this.state.playerCount].questions[
-              this.state.questionCount
+            this.props.state.players[this.props.state.playerCount].questions[
+              this.props.state.questionCount
             ].correct_answer
           }
           incorrect_answers={
-            this.state.players[this.state.playerCount].questions[
-              this.state.questionCount
+            this.props.state.players[this.props.state.playerCount].questions[
+              this.props.state.questionCount
             ].incorrect_answers
           }
         />
