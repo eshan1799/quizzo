@@ -16,6 +16,7 @@ class InputContainer extends Component {
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         }
+
       handleOpenModal () {
         this.setState({ showModal: true });
       }
@@ -41,13 +42,24 @@ class InputContainer extends Component {
            category = 0;  // NOT SURE WHAT TO PUT HERE
         }
 
-        const userurl = `https://opentdb.com/api.php?amount=10&category=9&difficulty=${this.state.difficulty}&type=multiple`
+        const userurl = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${this.state.difficulty}&type=multiple`
 
         fetch(userurl)
           .then(r => r.json())
-          .then(console.log)
+          .then(this.updateProps)
           .catch(err => console.warn('Oh dear...', err))
 
+      }
+
+      updateProps = item => {
+        let obj = {
+          name: this.state.name,
+          questions: item.results,
+          difficulty: this.state.difficulty,
+          topic: this.state.topic
+        }
+
+        this.props.handleToUpdate(obj)
       }
 
       handleInput = e => {
@@ -55,13 +67,8 @@ class InputContainer extends Component {
           this.setState({ [name]: value })
       }
 
-    //   handleFormSubmit = e => {
-    //     e.preventDefault();
-    //     this.setState({ showModal: false });
-    // }
-
     render() {
-
+        var handleToUpdate  =   this.props.handleToUpdate;
         return (
             <main>
                 <button id='addPlayerButton' onClick={this.handleOpenModal}>Add player</button>
@@ -91,10 +98,11 @@ class InputContainer extends Component {
 
                 <div id='playerList'>
                     <ol>
-                        <p>No players</p>
+                        {this.props.players.map((player, index) => {return <li key={index}>Player name: {player.name}, Difficulty: {player.difficulty}, Topic: {player.topic}</li>})}
                     </ol>
                 </div>
                 <button>Start</button>
+
             </main>
         )
     }

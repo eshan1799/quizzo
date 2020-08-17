@@ -3,7 +3,14 @@ import InputContainer from "./Containers/InputContainer";
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import "./styles/App.css";
 class App extends React.Component {
-  state = {};
+  state = {players: []}
+
+    handleToUpdate(someArg){
+        this.setState(prevState => ({
+          players: [...prevState.players, someArg]
+        }));
+    }
+
   render() {
     return (
       <>
@@ -13,7 +20,7 @@ class App extends React.Component {
             <button>Start quiz</button>
           </AnchorLink>
         </section>
-        <InputContainer />
+        <InputContainer handleToUpdate = {this.handleToUpdate.bind(this)} players = {this.state.players}/>
       </>
     );
   }
