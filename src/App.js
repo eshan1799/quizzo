@@ -32,6 +32,7 @@ class App extends React.Component {
 
         <Switch>
           <Route
+            id="path1"
             exact
             path="/"
             render={(props) => (
@@ -52,6 +53,7 @@ class App extends React.Component {
             )}
           />
           <Route
+            id="path2"
             path="/questions"
             render={() => (
               <QuestionComponent
@@ -61,13 +63,16 @@ class App extends React.Component {
               />
             )}
           ></Route>
+
+
           <Route
             path="/results"
             render={() => (
               <ResultsContainer state={this.state}/>
             )}
           ></Route>
-          <Route path="/test" render={() => <h1 id="welcome">Welcome</h1>} />
+ 
+
         </Switch>
       </>
     );

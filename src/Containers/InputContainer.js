@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
-ReactModal.setAppElement("#root");
+
+if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 import { NavLink } from "react-router-dom";
+
 // import DropdownComponent from "../Components/DropdownComponent";
 
 class InputContainer extends Component {
@@ -116,7 +118,7 @@ class InputContainer extends Component {
             {/* <button type="submit" onClick={this.handleCloseModal}>
               Close Modal
             </button> */}
-            <input type="submit"></input>
+            <input id="submitPlayerButton" type="submit"></input>
           </form>
         </ReactModal>
 
