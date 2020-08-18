@@ -12,7 +12,7 @@ describe("App", () => {
   });
 
   test("Check title content", () => {
-    expect(component.find("h1").text()).toBe("Quiz!");
+    expect(component.find("h1").text()).toBe("Quizzo!");
   });
 
   test("Check initial data types of state values", () => {
@@ -40,7 +40,7 @@ describe("App", () => {
   });
 
   test("Find Switch routes", () => {
-    expect(Switch.find("Route")).toHaveLength(2);
+    expect(Switch.find("Route")).toHaveLength(3);
   });
 
   test("Routes are correct", () => {

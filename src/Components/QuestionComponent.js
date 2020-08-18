@@ -12,20 +12,21 @@ class QuestionComponent extends Component {
         }
 
         function replaceSymbols(question) {
+
             const symbols = [
-                { 
+                {
                   code: '&#039;',
-                  symbol: "'" 
+                  symbol: "'"
                 },
-                { 
+                {
                   code: '&ldquo;',
-                  symbol: "'" 
+                  symbol: "'"
                 },
                 {
                   code: '&hellip;',
-                  symbol: "..." 
+                  symbol: "..."
                 },
-                { 
+                {
                   code: '&quot;',
                   symbol: '"'
                 },
@@ -57,7 +58,7 @@ class QuestionComponent extends Component {
 
             return question
         }
-        
+
         shuffleArray(ansArr)
         ansArr = ansArr.map(answer => {
             return replaceSymbols(answer)
