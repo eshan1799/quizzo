@@ -1,12 +1,17 @@
 import App from "../App";
 
 describe("App", () => {
-  let component;
+  let component, Switch;
   beforeEach(() => {
     component = shallow(<App />);
+    Switch = component.find("Switch");
   });
 
-  test("Check h1 text content", () => {
+  test("App renders", () => {
+    expect(component).toExist;
+  });
+
+  test("Check title content", () => {
     expect(component.find("h1").text()).toBe("Quiz!");
   });
 
@@ -28,5 +33,18 @@ describe("App", () => {
         component.state("players") +
         component.state("score")
     ).toBe("");
+  });
+
+  test("Switch component renders", () => {
+    expect(Switch).toHaveLength(1);
+  });
+
+  test("Find Switch routes", () => {
+    expect(Switch.find("Route")).toHaveLength(2);
+  });
+
+  test("Routes are correct", () => {
+    expect(Switch.find("#path1").props().path).toBe("/");
+    expect(Switch.find("#path2").props().path).toBe("/questions");
   });
 });

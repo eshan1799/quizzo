@@ -70,7 +70,7 @@ class InputContainer extends Component {
   render() {
     var handleToUpdate = this.props.handleToUpdate;
     return (
-      <main>
+      <main id="InputContainer">
         <button id="addPlayerButton" onClick={this.handleOpenModal}>
           Add player
         </button>
