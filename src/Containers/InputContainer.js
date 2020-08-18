@@ -43,7 +43,7 @@ class InputContainer extends Component {
         category = 0; // NOT SURE WHAT TO PUT HERE
     }
 
-    const userurl = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${this.state.difficulty}&type=multiple`;
+    const userurl = `https://opentdb.com/api.php?amount=100&category=${category}&difficulty=${this.state.difficulty}&type=multiple`;
 
     fetch(userurl)
       .then((r) => r.json())
