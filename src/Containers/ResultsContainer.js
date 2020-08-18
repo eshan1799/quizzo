@@ -31,7 +31,7 @@ class ResultsContainer extends Component {
                             Score:{person.score}
                         </h3>)}
                         
-                    <NavLink onClick={this.pageRefresh} to="/">
+                    <NavLink onClick={this.props.resetState} to="/">
                         <button>New Quiz</button>
                     </NavLink>
             </div>

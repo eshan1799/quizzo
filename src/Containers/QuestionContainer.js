@@ -7,13 +7,22 @@ import { Redirect } from "react-router-dom";
 class QuestionContainer extends Component {
   state = this.props.state;
 
+  snapState = {};
+  resetState = () => {
+    return this.setState({...this.snapState})
+  }
+
   componentDidMount() {
     let scoreArr = [];
     for (const player of this.state.players) {
       scoreArr.push(0);
     }
     this.setState({ score: scoreArr });
-    this.setState({ redirect: false })
+    this.setState({ redirect: false });
+  }
+
+  componentWillUnmount() {
+    this.resetState();
   }
 
   changeQuestionHandler = (event) => {
@@ -66,7 +75,11 @@ class QuestionContainer extends Component {
     //It's running everything twice?
     //counter = counter + 1;
     if (this.state.redirect){
-      return <Redirect to="/results"/>
+      return (
+        <div>
+          <Redirect to="/results"/>
+        </div>
+      )
     } else {
       return (
         <div>
