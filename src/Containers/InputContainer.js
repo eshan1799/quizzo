@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
-ReactModal.setAppElement("#root");
-import { Switch, Route, NavLink } from "react-router-dom";
+
+if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
+import { NavLink } from "react-router-dom";
+
 // import DropdownComponent from "../Components/DropdownComponent";
 
 class InputContainer extends Component {
@@ -43,7 +45,7 @@ class InputContainer extends Component {
         category = 0; // NOT SURE WHAT TO PUT HERE
     }
 
-    const userurl = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${this.state.difficulty}&type=multiple`;
+    const userurl = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${this.state.difficulty}&type=multiple`;
 
     fetch(userurl)
       .then((r) => r.json())
@@ -116,7 +118,7 @@ class InputContainer extends Component {
             {/* <button type="submit" onClick={this.handleCloseModal}>
               Close Modal
             </button> */}
-            <input type="submit"></input>
+            <input id="submitPlayerButton" type="submit"></input>
           </form>
         </ReactModal>
 
