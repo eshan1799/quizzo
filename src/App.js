@@ -4,6 +4,8 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import "./styles/App.css";
 import { Switch, Route } from "react-router-dom";
 import QuestionComponent from "./Containers/QuestionContainer";
+import ResultsContainer from "./Containers/ResultsContainer"
+
 class App extends React.Component {
   state = {
     playerCount: 0,
@@ -26,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>Quiz!</h1>
+        <h1>Quizzo!</h1>
 
         <Switch>
           <Route
@@ -51,12 +53,18 @@ class App extends React.Component {
           />
           <Route
             path="/questions"
-            render={(props) => (
+            render={() => (
               <QuestionComponent
-                {...props}
+                //{...props}
                 state={this.state}
                 finalScore={this.finalScore.bind(this)}
               />
+            )}
+          ></Route>
+          <Route
+            path="/results"
+            render={() => (
+              <ResultsContainer state={this.state}/>
             )}
           ></Route>
           <Route path="/test" render={() => <h1 id="welcome">Welcome</h1>} />
