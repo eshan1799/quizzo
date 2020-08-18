@@ -116,7 +116,7 @@ class InputContainer extends Component {
             {/* <button type="submit" onClick={this.handleCloseModal}>
               Close Modal
             </button> */}
-            <input type="submit"></input>
+            <input id="submitPlayerButton" type="submit"></input>
           </form>
         </ReactModal>
 
