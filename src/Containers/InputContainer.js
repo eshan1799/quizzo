@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
-ReactModal.setAppElement("#root");
+if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 import { Switch, Route, NavLink } from "react-router-dom";
 // import DropdownComponent from "../Components/DropdownComponent";
 

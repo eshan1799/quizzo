@@ -7,6 +7,6 @@ describe("App", () => {
   });
 
   test("Check h1 text content", () => {
-    expect(component.find("h1").text()).toBe("New React App");
+    expect(component.find("h1").text()).toBe("Quiz!");
   });
 });
