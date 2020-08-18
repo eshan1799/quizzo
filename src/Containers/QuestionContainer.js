@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import QuestionComponent from "../Components/QuestionComponent";
 
+//let counter = 0;
+
 class QuestionContainer extends Component {
   state = this.props.state;
 
@@ -59,6 +61,9 @@ class QuestionContainer extends Component {
   };
 
   render() {
+    //It's running everything twice?
+    //counter = counter + 1;
+
     return (
       <div>
         <QuestionComponent
