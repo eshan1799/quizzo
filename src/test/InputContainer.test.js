@@ -1,12 +1,13 @@
-// import InputContainer from "../Containers/InputContainer";
+import InputContainer from "../Containers/InputContainer";
 
-// describe("InputContainer", () => {
-//   let component;
-//   beforeEach(() => {
-//     component = shallow(<InputContainer />);
-//   });
+describe("InputContainer", () => {
+  let component;
+  let Arr = [1, 2, 3];
+  beforeEach(() => {
+    component = shallow(<InputContainer players={Arr} />);
+  });
 
-//   test("Input Container renders", () => {
-//     expect(component.find("#InputContainer")).toHaveLength(1);
-//   });
-// });
+  test("Input Container renders", () => {
+    expect(component).toExist;
+  });
+});
