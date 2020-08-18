@@ -47,4 +47,10 @@ describe("App", () => {
     expect(Switch.find("#path1").props().path).toBe("/");
     expect(Switch.find("#path2").props().path).toBe("/questions");
   });
+
+  test('check that the route props \'render\' are functions', () => {
+    expect(typeof Switch.find("#path1").props().render).toBe("function");
+    expect(typeof Switch.find("#path2").props().render).toBe("function");
+    expect(typeof Switch.find("#path3").props().render).toBe("function");
+  })
 });

@@ -42,7 +42,7 @@ class InputContainer extends Component {
         category = 22;
         break;
       default:
-        category = 0; // NOT SURE WHAT TO PUT HERE
+        category = 0;
     }
 
     const userurl = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${this.state.difficulty}&type=multiple`;

@@ -33,13 +33,21 @@ describe("InputContainer", () => {
     expect(component.state("showModal")).toBe(true);
   });
 
-  test('name input is controlled', () => {
+  test('player form input is controlled', () => {
     component.find("#name").simulate("change", {target: {name: "name", value: "A"}});
     expect(component.state('name')).toBe('A');
+
+    component.find("#topic").simulate("change", {target: {name: "topic", value: "sports"}});
+    expect(component.state('topic')).toBe('sports');
+
+    component.find("#difficulty").simulate("change", {target: {name: "difficulty", value: "hard"}});
+    expect(component.state('difficulty')).toBe('hard');
   })
 
   test('button "closePlayerButton" runs CloseModal method', () => {
     component.find("#submitPlayerButton").simulate("click");
     expect(component.state("showModal")).toBe(false);
   });
+
+  
 });
