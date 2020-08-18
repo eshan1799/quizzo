@@ -49,5 +49,14 @@ describe("InputContainer", () => {
     expect(component.state("showModal")).toBe(false);
   });
 
-  
+// // NOT QUITE WORKING BUT CLOSE
+//   test('Check clicking Add player runs handleOpenModal', () => {
+//     const instance = component.instance();
+//     const addPlayerBtn = component.find('#addPlayerButton')
+//     const handleOpenModal = sinon.spy(instance, 'handleOpenModal');
+//     addPlayerBtn.simulate('click');
+//     expect(handleOpenModal.calledOnce).toBe(true);
+//   })
+
+
 });
