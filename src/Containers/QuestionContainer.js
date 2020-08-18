@@ -64,7 +64,7 @@ class QuestionContainer extends Component {
         <QuestionComponent
           on_submit={this.changeQuestionHandler}
           question_no={this.state.questionCount + 1}
-          name={this.state.players[0].name}
+          name={this.state.players[this.state.playerCount].name}
           question={
             this.state.players[this.state.playerCount].questions[
               this.state.questionCount
