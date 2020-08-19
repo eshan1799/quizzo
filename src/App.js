@@ -15,6 +15,12 @@ class App extends React.Component {
     score: [],
   };
 
+  snapState = {...this.state};
+
+  resetState = () => {
+    this.setState({...this.snapState})
+  };
+
   handleToUpdate(someArg) {
     this.setState((prevState) => ({
       players: [...prevState.players, someArg],
@@ -35,7 +41,7 @@ class App extends React.Component {
             id="path1"
             exact
             path="/"
-            render={(props) => (
+            render={() => (
               <>
                 <section id="welcomePage">
                   <h1>Trivia</h1>
@@ -45,7 +51,6 @@ class App extends React.Component {
                 </section>
 
                 <InputContainer
-                  {...props}
                   handleToUpdate={this.handleToUpdate.bind(this)}
                   players={this.state.players}
                 />
@@ -69,12 +74,13 @@ class App extends React.Component {
             id="path3"
             path="/results"
             render={() => (
-              <ResultsContainer state={this.state}/>
+              <ResultsContainer state={this.state} resetState={this.resetState.bind(this)}/>
             )}
           ></Route>
 
 
         </Switch>
+
       </>
     );
   }
