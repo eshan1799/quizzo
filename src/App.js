@@ -37,11 +37,18 @@ class App extends React.Component {
     this.setState({ score: score });
   };
 
+
   handleOpenModal= ()=> {
     this.setState({ showModal: true });
   }
   handleCloseModal=()=> {
     this.setState({ showModal: false });
+
+  deletePlayer = (index) => {
+    const newPlayers = [...this.state.players];
+    newPlayers.splice(index, 1)
+    this.setState({players: newPlayers})
+
   }
 
   render() {
@@ -89,6 +96,7 @@ class App extends React.Component {
                 <InputContainer
                   handleToUpdate={this.handleToUpdate.bind(this)}
                   players={this.state.players}
+                  deletePlayer = {this.deletePlayer.bind(this)}
                 />
               </>
             )}

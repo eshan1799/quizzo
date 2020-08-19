@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QuestionComponent from "../Components/QuestionComponent";
+import PopupComponent from "../Components/PopupComponent"
 import { Redirect } from "react-router-dom";
 
 //let counter = 0;
@@ -102,30 +103,58 @@ class QuestionContainer extends Component {
         </div>
       )
     } else {
-      return (
-        <div>
-          <QuestionComponent
-            on_submit={this.changeQuestionHandler}
-            question_no={this.state.questionCount + 1}
-            name={this.state.players[this.state.playerCount].name}
-            question={
-              this.state.players[this.state.playerCount].questions[
-                this.state.questionCount
-              ].question
-            }
-            correct_answer={
-              this.state.players[this.state.playerCount].questions[
-                this.state.questionCount
-              ].correct_answer
-            }
-            incorrect_answers={
-              this.state.players[this.state.playerCount].questions[
-                this.state.questionCount
-              ].incorrect_answers
-            }
-          />
-        </div>
-      );
+      if (this.state.questionCount === 0) {
+        return (
+          <div>
+            <PopupComponent player = {this.state.players[this.state.playerCount].name}/>
+            <QuestionComponent
+              on_submit={this.changeQuestionHandler}
+              question_no={this.state.questionCount + 1}
+              name={this.state.players[this.state.playerCount].name}
+              question={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].question
+              }
+              correct_answer={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].correct_answer
+              }
+              incorrect_answers={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].incorrect_answers
+              }
+            />
+          </div>
+        )
+      } else {
+        return (
+          <div>
+            <QuestionComponent
+              on_submit={this.changeQuestionHandler}
+              question_no={this.state.questionCount + 1}
+              name={this.state.players[this.state.playerCount].name}
+              question={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].question
+              }
+              correct_answer={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].correct_answer
+              }
+              incorrect_answers={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].incorrect_answers
+              }
+            />
+          </div>
+        );
+      }
     }
   }
 }
