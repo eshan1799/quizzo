@@ -45,7 +45,7 @@ class InputContainer extends Component {
         category = 0;
     }
 
-    const userurl = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${this.state.difficulty}&type=multiple`;
+    const userurl = `https://opentdb.com/api.php?amount=3&category=${category}&difficulty=${this.state.difficulty}&type=multiple`;
 
     fetch(userurl)
       .then((r) => r.json())
@@ -83,6 +83,7 @@ class InputContainer extends Component {
           <form onSubmit={() => this.handleCloseModal(event)}>
             <label htmlFor="name">Name</label>
             <input
+              required
               id="name"
               name="name"
               type="text"
@@ -129,6 +130,7 @@ class InputContainer extends Component {
                 <li key={index}>
                   Player name: {player.name}, Difficulty: {player.difficulty},
                   Topic: {player.topic}
+                  <button onClick={() => this.props.deletePlayer(index)}>Delete</button>
                 </li>
               );
             })}
