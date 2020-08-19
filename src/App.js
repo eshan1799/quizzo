@@ -57,9 +57,13 @@ class App extends React.Component {
         <nav>
           <button onClick={() => {
             if (window.confirm("Are you sure? Going home will end current quiz!")) {
-              this.resetState()
-              this.setState({ score: [] })
+
+              this.setState({ score: [] }, () => {
+                this.resetState();
+
+              })
               this.props.history.push("/")
+
               // location.reload();
               console.log("Home")
             } else {
