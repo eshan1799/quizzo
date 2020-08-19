@@ -4,8 +4,6 @@ import ReactModal from "react-modal";
 if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 import { NavLink } from "react-router-dom";
 
-// import DropdownComponent from "../Components/DropdownComponent";
-
 class InputContainer extends Component {
   constructor() {
     super();
@@ -45,12 +43,16 @@ class InputContainer extends Component {
         category = 0;
     }
 
-    const userurl = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${this.state.difficulty}&type=multiple`;
+    const userurl = `https://opentdb.com/api.php?amount=2&category=${category}&difficulty=${this.state.difficulty}&type=multiple`;
 
     fetch(userurl)
       .then((r) => r.json())
       .then(this.updateProps)
       .catch((err) => console.warn("Oh dear...", err));
+  }
+
+  closeModalButton = () => {
+    this.setState({ showModal: false });
   }
 
   updateProps = (item) => {
@@ -70,7 +72,6 @@ class InputContainer extends Component {
   };
 
   render() {
-    var handleToUpdate = this.props.handleToUpdate;
     return (
       <main>
         <button id="addPlayerButton" onClick={this.handleOpenModal}>
@@ -96,7 +97,6 @@ class InputContainer extends Component {
               defaultValue="Hello"
               onChange={this.handleInput}
             >
-              {/* <option disabled selected value> -- select an option -- </option> */}
               <option value="generalKnowledge">General Knowledge</option>
               <option value="sports">Sports</option>
               <option value="science">Science</option>
@@ -109,17 +109,14 @@ class InputContainer extends Component {
               defaultValue="Good"
               onChange={this.handleInput}
             >
-              {/* <option disabled selected value> -- select an option -- </option>   */}
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
             </select>
-            {/* <input type='submit' value='submit'>Add</input> */}
-            {/* <button type="submit" onClick={this.handleCloseModal}>
-              Close Modal
-            </button> */}
+
             <input id="submitPlayerButton" type="submit"></input>
           </form>
+          <button onClick={this.closeModalButton}>Close</button>
         </ReactModal>
 
         <div id="playerList">
