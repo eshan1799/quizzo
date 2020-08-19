@@ -135,6 +135,7 @@ class InputContainer extends Component {
               <option value="general knowledge">General Knowledge</option>
               <option value="geography">Geography</option>
               <option value="history">History</option>
+              <option value="maths">Maths</option>
               <option value="music">Music</option>
               <option value="science">Science</option>
               <option value="sports">Sports</option>
