@@ -3,7 +3,7 @@ import InputContainer from "./Containers/InputContainer";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import "./styles/App.css";
 import { Switch, Route } from "react-router-dom";
-import QuestionComponent from "./Containers/QuestionContainer";
+import QuestionContainer from "./Containers/QuestionContainer";
 import ResultsContainer from "./Containers/ResultsContainer"
 
 class App extends React.Component {
@@ -61,7 +61,7 @@ class App extends React.Component {
             id="path2"
             path="/questions"
             render={() => (
-              <QuestionComponent
+              <QuestionContainer
                 //{...props}
                 state={this.state}
                 finalScore={this.finalScore.bind(this)}

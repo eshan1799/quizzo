@@ -59,19 +59,39 @@ class QuestionContainer extends Component {
     const corrAns = this.state.players[this.state.playerCount].questions[
       this.state.questionCount
     ].correct_answer;
+    let newScore = [...this.state.score];
     let positive_muliplier
     let negative_muliplier
+    
     //const idx = this.state.playerCount
-    if (answer === corrAns) {
-      let newScore = [...this.state.score];
-      newScore[this.state.playerCount]++;
-      this.setState(
-        {
-          score: newScore,
-        },
-        () => console.log(this.state.score)
-      );
+
+    switch (this.state.players[this.state.playerCount].difficulty) {
+      case "medium":
+        positive_muliplier = 2;
+        negative_muliplier = 1;
+        break;
+      case "hard":
+        positive_muliplier = 3;
+        negative_muliplier = 2;
+        break;
+      default:
+        positive_muliplier = 1;
+        negative_muliplier = 0;
+        break;
     }
+
+    if (answer === corrAns) {
+      newScore[this.state.playerCount] += 100 * positive_muliplier;
+    } else {
+      newScore[this.state.playerCount] -= 100 * negative_muliplier
+    }
+    this.setState(
+      {
+        score: newScore,
+      },
+      () => console.log(this.state.score)
+    );
+    
   };
 
   render() {
