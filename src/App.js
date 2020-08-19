@@ -68,11 +68,9 @@ class App extends React.Component {
         >
           <InstructionsComponent onClick={this.handleCloseModal.bind(this)}/>
         </ReactModal>
-        
-
-
-        <h1>Quizzo!</h1>
-        {/* <Instructions /> */}
+      
+        <h1>TriviaBoss</h1>
+        <h2><em>The pub quiz where everyone's an expert!</em></h2>
 
         <Switch>
           <Route
@@ -82,7 +80,7 @@ class App extends React.Component {
             render={() => (
               <>
                 <section id="welcomePage">
-                  <h1>Trivia</h1>
+                  
                   <AnchorLink href="#addPlayerButton">
                     <button>Start quiz</button>
                   </AnchorLink>
@@ -117,15 +115,6 @@ class App extends React.Component {
               />
             )}
           ></Route>
-          
-          {/* <Route
-            id="instructions"
-            page="/instructions"
-            render={() => (
-              <Instructions
-              />
-            )}
-          ></Route> */}
 
           <Route
             id="path404"

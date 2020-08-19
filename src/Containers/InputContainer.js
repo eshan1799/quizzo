@@ -51,6 +51,10 @@ class InputContainer extends Component {
       .catch((err) => console.warn("Oh dear...", err));
   }
 
+  closeModalButton = () => {
+    this.setState({ showModal: false });
+  }
+
   updateProps = (item) => {
     let obj = {
       name: this.state.name,
@@ -112,6 +116,7 @@ class InputContainer extends Component {
 
             <input id="submitPlayerButton" type="submit"></input>
           </form>
+          <button onClick={this.closeModalButton}>Close</button>
         </ReactModal>
 
         <div id="playerList">
