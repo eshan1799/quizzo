@@ -24,18 +24,18 @@ class Instructions extends Component {
     render() {
         return (
             <main>
-            <ReactModal
+            {/* <ReactModal
                 isOpen={this.state.showModal}
                 contentLabel="Minimal Modal Example"
             >
                 {/* <form onSubmit={() => this.handleCloseModal(event)}>
                 </form> */}
 
-                <h3>Instructions:</h3>
+                {/* <h3>Instructions:</h3>
                 <p>Click 'start' and then play</p>
 
                 <button onClick={this.handleCloseModal()}>Close Instructions</button>
-            </ReactModal>
+            </ReactModal> */} */}
 
             </main>
         );

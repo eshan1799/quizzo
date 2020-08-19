@@ -42,9 +42,10 @@ class App extends React.Component {
             if (window.confirm("Are you sure? Going home will end current quiz!")) {
               this.resetState()
               this.props.history.push("/")
-              console.log("go")
+              location.reload();
+              console.log("Home")
             } else { 
-              console.log("stay")
+              console.log("Cancelled")
             }
           }}>Home</button>
           <button onClick={console.log('h')}>Instructions</button>
@@ -54,6 +55,7 @@ class App extends React.Component {
 
 
         <h1>Quizzo!</h1>
+        {/* <Instructions /> */}
 
         <Switch>
           <Route
@@ -99,14 +101,14 @@ class App extends React.Component {
             )}
           ></Route>
           
-          <Route
+          {/* <Route
             id="instructions"
             page="/instructions"
             render={() => (
               <Instructions
               />
             )}
-          ></Route>
+          ></Route> */}
 
           <Route
             id="path404"
