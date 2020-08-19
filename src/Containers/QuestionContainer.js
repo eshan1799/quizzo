@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QuestionComponent from "../Components/QuestionComponent";
+import PopupComponent from "../Components/PopupComponent"
 import { Redirect } from "react-router-dom";
 
 //let counter = 0;
@@ -22,11 +23,13 @@ class QuestionContainer extends Component {
   }
 
   componentWillUnmount() {
+    this.props.finalScore(this.state.score);
     this.resetState();
   }
 
   changeQuestionHandler = (event) => {
-      event.preventDefault();
+    event.preventDefault();
+    
       console.log(
         `Player: ${this.state.playerCount + 1}, Question: ${
           this.state.questionCount + 1
@@ -44,7 +47,6 @@ class QuestionContainer extends Component {
           return { playerCount: ++prev.playerCount };
         });
       } else {
-        this.props.finalScore(this.state.score);
         this.setState({ redirect: true });
         console.log("Quiz End");
       }
@@ -58,17 +60,37 @@ class QuestionContainer extends Component {
     const corrAns = this.state.players[this.state.playerCount].questions[
       this.state.questionCount
     ].correct_answer;
-    //const idx = this.state.playerCount
-    if (answer === corrAns) {
-      let newScore = [...this.state.score];
-      newScore[this.state.playerCount]++;
-      this.setState(
-        {
-          score: newScore,
-        },
-        () => console.log(this.state.score)
-      );
+    let newScore = [...this.state.score];
+    let positive_muliplier
+    let negative_muliplier
+
+    switch (this.state.players[this.state.playerCount].difficulty) {
+      case "medium":
+        positive_muliplier = 2;
+        negative_muliplier = 1;
+        break;
+      case "hard":
+        positive_muliplier = 3;
+        negative_muliplier = 2;
+        break;
+      default:
+        positive_muliplier = 1;
+        negative_muliplier = 0;
+        break;
     }
+
+    if (answer === corrAns) {
+      newScore[this.state.playerCount] += 100 * positive_muliplier;
+    } else {
+      newScore[this.state.playerCount] -= 100 * negative_muliplier
+    }
+    this.setState(
+      {
+        score: newScore,
+      },
+      () => console.log(this.state.score)
+    );
+    
   };
 
   render() {
@@ -81,30 +103,58 @@ class QuestionContainer extends Component {
         </div>
       )
     } else {
-      return (
-        <div>
-          <QuestionComponent
-            on_submit={this.changeQuestionHandler}
-            question_no={this.state.questionCount + 1}
-            name={this.state.players[this.state.playerCount].name}
-            question={
-              this.state.players[this.state.playerCount].questions[
-                this.state.questionCount
-              ].question
-            }
-            correct_answer={
-              this.state.players[this.state.playerCount].questions[
-                this.state.questionCount
-              ].correct_answer
-            }
-            incorrect_answers={
-              this.state.players[this.state.playerCount].questions[
-                this.state.questionCount
-              ].incorrect_answers
-            }
-          />
-        </div>
-      );
+      if (this.state.questionCount === 0) {
+        return (
+          <div>
+            <PopupComponent player = {this.state.players[this.state.playerCount].name}/>
+            <QuestionComponent
+              on_submit={this.changeQuestionHandler}
+              question_no={this.state.questionCount + 1}
+              name={this.state.players[this.state.playerCount].name}
+              question={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].question
+              }
+              correct_answer={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].correct_answer
+              }
+              incorrect_answers={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].incorrect_answers
+              }
+            />
+          </div>
+        )
+      } else {
+        return (
+          <div>
+            <QuestionComponent
+              on_submit={this.changeQuestionHandler}
+              question_no={this.state.questionCount + 1}
+              name={this.state.players[this.state.playerCount].name}
+              question={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].question
+              }
+              correct_answer={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].correct_answer
+              }
+              incorrect_answers={
+                this.state.players[this.state.playerCount].questions[
+                  this.state.questionCount
+                ].incorrect_answers
+              }
+            />
+          </div>
+        );
+      }
     }
   }
 }
