@@ -78,7 +78,7 @@ class InputContainer extends Component {
         </button>
         <ReactModal
           isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example"
+          contentLabel="addPlayer Modal"
         >
           <form onSubmit={() => this.handleCloseModal(event)}>
             <label htmlFor="name">Name</label>
