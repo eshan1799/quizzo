@@ -11,6 +11,8 @@ class InputContainer extends Component {
       showModal: false,
       topic: "generalKnowledge",
       difficulty: "easy",
+      chooseNoQ: false,
+      numOfQuestions: 5,
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -20,6 +22,7 @@ class InputContainer extends Component {
   handleOpenModal() {
     this.setState({ showModal: true });
   }
+
   handleCloseModal(e) {
     e.preventDefault();
     this.setState({ showModal: false });
@@ -43,7 +46,7 @@ class InputContainer extends Component {
         category = 0;
     }
 
-    const userurl = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${this.state.difficulty}&type=multiple&encode=url3986`;
+    const userurl = `https://opentdb.com/api.php?amount=${this.state.numOfQuestions}&category=${category}&difficulty=${this.state.difficulty}&type=multiple&encode=url3986`;
 
     fetch(userurl)
       .then((r) => r.json())
@@ -71,8 +74,27 @@ class InputContainer extends Component {
     this.setState({ [name]: value });
   };
 
+  handleQuestionChoice = (e) => {
+    e.preventDefault();
+    this.setState({ chooseNoQ : true })
+  }
+
   render() {
     return (
+      !this.state.chooseNoQ ?
+      <main>
+      <form id="addPlayerButton" onSubmit={this.handleQuestionChoice}>
+        <h3>How many questions should be in your quiz?</h3>
+          <select onChange={this.handleInput} name="numOfQuestions">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+          <input type="submit"></input>
+      </form>
+      </main>
+      :
       <main>
         <button id="addPlayerButton" onClick={this.handleOpenModal}>
           Add player
