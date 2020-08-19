@@ -62,8 +62,6 @@ class QuestionContainer extends Component {
     let newScore = [...this.state.score];
     let positive_muliplier
     let negative_muliplier
-    
-    //const idx = this.state.playerCount
 
     switch (this.state.players[this.state.playerCount].difficulty) {
       case "medium":
