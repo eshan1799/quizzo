@@ -6,7 +6,10 @@ import { Switch, Route, NavLink, Prompt, withRouter } from "react-router-dom";
 import QuestionContainer from "./Containers/QuestionContainer";
 import ResultsContainer from "./Containers/ResultsContainer";
 import Error404 from "./Components/Error404";
-import Instructions from "./Components/IntructionsComponent";
+import InstructionsComponent from "./Components/InstructionsComponent";
+import ReactModal from "react-modal";
+
+if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 
 class App extends React.Component {
   state = {
@@ -34,6 +37,13 @@ class App extends React.Component {
     this.setState({ score: score });
   };
 
+  handleOpenModal= ()=> {
+    this.setState({ showModal: true });
+  }
+  handleCloseModal=()=> {
+    this.setState({ showModal: false });
+  }
+
   render() {
     return ( 
       <>
@@ -41,16 +51,23 @@ class App extends React.Component {
           <button onClick={() => { 
             if (window.confirm("Are you sure? Going home will end current quiz!")) {
               this.resetState()
+              this.setState({score:[]})
               this.props.history.push("/")
-              location.reload();
+              // location.reload();
               console.log("Home")
             } else { 
               console.log("Cancelled")
             }
           }}>Home</button>
-          <button onClick={console.log('h')}>Instructions</button>
+          <button onClick={this.handleOpenModal}>Instructions</button>
         </nav>
                 
+        <ReactModal
+          isOpen={this.state.showModal}
+          contentLabel="Minimal Modal Example"
+        >
+          <InstructionsComponent onClick={this.handleCloseModal.bind(this)}/>
+        </ReactModal>
         
 
 

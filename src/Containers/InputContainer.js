@@ -4,8 +4,6 @@ import ReactModal from "react-modal";
 if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 import { NavLink } from "react-router-dom";
 
-// import DropdownComponent from "../Components/DropdownComponent";
-
 class InputContainer extends Component {
   constructor() {
     super();
@@ -70,7 +68,6 @@ class InputContainer extends Component {
   };
 
   render() {
-    // var handleToUpdate = this.props.handleToUpdate;
     return (
       <main>
         <button id="addPlayerButton" onClick={this.handleOpenModal}>
@@ -96,7 +93,6 @@ class InputContainer extends Component {
               defaultValue="Hello"
               onChange={this.handleInput}
             >
-              {/* <option disabled selected value> -- select an option -- </option> */}
               <option value="generalKnowledge">General Knowledge</option>
               <option value="sports">Sports</option>
               <option value="science">Science</option>
@@ -109,15 +105,11 @@ class InputContainer extends Component {
               defaultValue="Good"
               onChange={this.handleInput}
             >
-              {/* <option disabled selected value> -- select an option -- </option>   */}
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
             </select>
-            {/* <input type='submit' value='submit'>Add</input> */}
-            {/* <button type="submit" onClick={this.handleCloseModal}>
-              Close Modal
-            </button> */}
+
             <input id="submitPlayerButton" type="submit"></input>
           </form>
         </ReactModal>
