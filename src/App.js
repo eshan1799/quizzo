@@ -76,8 +76,7 @@ class App extends React.Component {
           <InstructionsComponent onClick={this.handleCloseModal.bind(this)} />
         </ReactModal>
 
-        <h1>TriviaBoss</h1>
-        <h2><em>The pub quiz where everyone's an expert!</em></h2>
+
 
         <Switch>
           <Route
@@ -87,7 +86,8 @@ class App extends React.Component {
             render={() => (
               <>
                 <section id="welcomePage">
-
+                  <h1>TriviaBoss</h1>
+                  <h3><em>The quiz where everyone's an expert!</em></h3>
                   <AnchorLink href="#addPlayerButton">
                     <button>Start quiz</button>
                   </AnchorLink>
