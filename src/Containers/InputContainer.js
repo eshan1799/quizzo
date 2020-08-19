@@ -9,7 +9,7 @@ class InputContainer extends Component {
     super();
     this.state = {
       showModal: false,
-      topic: "generalKnowledge",
+      topic: "animals",
       difficulty: "easy",
     };
 
@@ -27,20 +27,50 @@ class InputContainer extends Component {
     let category;
 
     switch (this.state.topic) {
-      case "generalKnowledge":
+      case "general knowledge":
         category = 9;
         break;
       case "sports":
         category = 21;
         break;
       case "science":
+        category = 17;
+        break;
+      case "maths":
         category = 19;
         break;
       case "geography":
         category = 22;
         break;
+      case "films":
+        category = 11;
+        break;
+      case "music":
+        category = 12;
+        break;
+      case "TV":
+        category = 14;
+        break;
+      case "video games":
+        category = 15;
+        break;
+      case "history":
+        category = 23;
+        break;
+      case "animals":
+        category = 27;
+        break;
+      case "gadgets":
+        category = 30;
+        break;
+      case "vehicles":
+        category = 28;
+        break;
+      case "celebrities":
+        category = 26;
+        break;
       default:
-        category = 0;
+        category = 9;
     }
 
     const userurl = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${this.state.difficulty}&type=multiple&encode=url3986`;
@@ -98,10 +128,19 @@ class InputContainer extends Component {
               defaultValue="Hello"
               onChange={this.handleInput}
             >
-              <option value="generalKnowledge">General Knowledge</option>
-              <option value="sports">Sports</option>
-              <option value="science">Science</option>
+              <option value="animals">Animals</option>
+              <option value="celebrities">Celebritites</option>
+              <option value="films">Films</option>
+              <option value="gadgets">Gadgets</option>
+              <option value="general knowledge">General Knowledge</option>
               <option value="geography">Geography</option>
+              <option value="history">History</option>
+              <option value="music">Music</option>
+              <option value="science">Science</option>
+              <option value="sports">Sports</option>
+              <option value="TV">TV</option>
+              <option value="vehicles">Vehicles</option>
+              <option value="video games">Video Games</option>
             </select>
             <label htmlFor="difficulty">Difficulty</label>
             <select
