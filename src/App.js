@@ -21,10 +21,10 @@ class App extends React.Component {
     showModal: false
   };
 
-  snapState = {...this.state};
+  snapState = { ...this.state };
 
   resetState = () => {
-    this.setState({...this.snapState})
+    this.setState({ ...this.snapState })
   };
 
   handleToUpdate(someArg) {
@@ -38,46 +38,45 @@ class App extends React.Component {
   };
 
 
-  handleOpenModal= ()=> {
+  handleOpenModal = () => {
     this.setState({ showModal: true });
   }
-  handleCloseModal=()=> {
+  handleCloseModal = () => {
     this.setState({ showModal: false });
-
+  }
   deletePlayer = (index) => {
     const newPlayers = [...this.state.players];
     newPlayers.splice(index, 1)
-    this.setState({players: newPlayers})
+    this.setState({ players: newPlayers })
 
   }
 
   render() {
-    return ( 
+    return (
       <>
         <nav>
-          <button onClick={() => { 
+          <button onClick={() => {
             if (window.confirm("Are you sure? Going home will end current quiz!")) {
               this.resetState()
-              this.setState({score:[]})
+              this.setState({ score: [] })
               this.props.history.push("/")
               // location.reload();
               console.log("Home")
-            } else { 
+            } else {
               console.log("Cancelled")
             }
           }}>Home</button>
           <button onClick={this.handleOpenModal}>Instructions</button>
         </nav>
-                
+
         <ReactModal
           isOpen={this.state.showModal}
           contentLabel="Minimal Modal Example"
         >
-          <InstructionsComponent onClick={this.handleCloseModal.bind(this)}/>
+          <InstructionsComponent onClick={this.handleCloseModal.bind(this)} />
         </ReactModal>
-      
-        <h1>TriviaBoss</h1>
-        <h2><em>The pub quiz where everyone's an expert!</em></h2>
+
+
 
         <Switch>
           <Route
@@ -87,7 +86,8 @@ class App extends React.Component {
             render={() => (
               <>
                 <section id="welcomePage">
-                  
+                  <h1>TriviaBoss</h1>
+                  <h3><em>The quiz where everyone's an expert!</em></h3>
                   <AnchorLink href="#addPlayerButton">
                     <button>Start quiz</button>
                   </AnchorLink>
@@ -96,7 +96,7 @@ class App extends React.Component {
                 <InputContainer
                   handleToUpdate={this.handleToUpdate.bind(this)}
                   players={this.state.players}
-                  deletePlayer = {this.deletePlayer.bind(this)}
+                  deletePlayer={this.deletePlayer.bind(this)}
                 />
               </>
             )}
