@@ -78,11 +78,12 @@ class InputContainer extends Component {
         </button>
         <ReactModal
           isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example"
+          contentLabel="addPlayer Modal"
         >
           <form onSubmit={() => this.handleCloseModal(event)}>
             <label htmlFor="name">Name</label>
             <input
+              required
               id="name"
               name="name"
               type="text"
@@ -129,15 +130,18 @@ class InputContainer extends Component {
                 <li key={index}>
                   Player name: {player.name}, Difficulty: {player.difficulty},
                   Topic: {player.topic}
+                  <button onClick={() => this.props.deletePlayer(index)}>Delete</button>
                 </li>
               );
             })}
           </ol>
         </div>
-
-        <NavLink to="/questions">
-          <button>Start</button>
-        </NavLink>
+        {this.props.players.length !== 0 ?
+          <NavLink to="/questions">
+            <button>Start</button>
+          </NavLink> :
+          null
+        }
       </main>
     );
   }

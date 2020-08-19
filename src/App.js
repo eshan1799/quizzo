@@ -31,6 +31,12 @@ class App extends React.Component {
     this.setState({ score: score });
   };
 
+  deletePlayer = (index) => {
+    const newPlayers = [...this.state.players];
+    newPlayers.splice(index, 1)
+    this.setState({players: newPlayers})
+  }
+
   render() {
     return (
       <>
@@ -53,6 +59,7 @@ class App extends React.Component {
                 <InputContainer
                   handleToUpdate={this.handleToUpdate.bind(this)}
                   players={this.state.players}
+                  deletePlayer = {this.deletePlayer.bind(this)}
                 />
               </>
             )}
