@@ -12,57 +12,9 @@ class QuestionComponent extends Component {
       }
     }
 
-    function replaceSymbols(question) {
-
-      const symbols = [
-        {
-          code: '&#039;',
-          symbol: "'"
-        },
-        {
-          code: '&ldquo;',
-          symbol: "'"
-        },
-        {
-          code: '&hellip;',
-          symbol: "..."
-        },
-        {
-          code: '&quot;',
-          symbol: '"'
-        },
-        {
-          code: '&rdquo;',
-          symbol: "'"
-        },
-        {
-          code: '&shy;',
-          symbol: "-"
-        },
-        {
-          code: '&rsquo;',
-          symbol: "'"
-        },
-        {
-          code: '&oacute;',
-          symbol: "ó"
-        },
-        {
-          code: '&Eacute;',
-          symbol: "é"
-        }
-      ];
-
-      for (let i = 0; i < symbols.length; i++) {
-        question = question.replace(new RegExp(symbols[i].code, 'g'), symbols[i].symbol)
-      }
-
-      return question
-    }
-
     shuffleArray(ansArr)
     const newAnsArr = ansArr.map(answer => {
-      return replaceSymbols(answer)
+      return decodeURIComponent(answer)
     })
 
     return (
@@ -71,7 +23,7 @@ class QuestionComponent extends Component {
         <form onSubmit={this.props.on_submit}>
           <h3>Player: {this.props.name}</h3>
           <h2>Question {this.props.question_no}</h2>
-          <h2>{replaceSymbols(this.props.question)}</h2>
+          <h2>{decodeURIComponent(this.props.question)}</h2>
           <input required type="radio" name="answer" id="1st" value={ansArr[0]}></input>
           <label htmlFor="1st">{newAnsArr[0]}</label>
           <input type="radio" name="answer" id="2nd" value={ansArr[1]}></input>
