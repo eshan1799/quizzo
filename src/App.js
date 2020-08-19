@@ -43,6 +43,7 @@ class App extends React.Component {
   }
   handleCloseModal=()=> {
     this.setState({ showModal: false });
+  }
 
   deletePlayer = (index) => {
     const newPlayers = [...this.state.players];
