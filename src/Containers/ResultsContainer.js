@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 class ResultsContainer extends Component {
     render(){
+
         const numOfPlayers = this.props.state.score.length;
         const nameAndScore = []
 

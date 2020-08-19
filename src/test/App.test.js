@@ -12,7 +12,7 @@ describe("App", () => {
   });
 
   test("Check title content", () => {
-    expect(component.find("h1").text()).toBe("Quiz!");
+    expect(component.find("h1").text()).toBe("Quizzo!");
   });
 
   test("Check initial data types of state values", () => {
@@ -35,16 +35,30 @@ describe("App", () => {
     ).toBe("");
   });
 
+  // test("Check finalScore method updates state", () =>{
+  //   const testScore = [2,1];
+  //   const instance = component.instance();
+  //   const finalScore = sinon.spy(instance, "finalScore");
+  //   expect(finalScore.calledWith(testScore)).toBe()
+  //   // expect(component.state("score")).toBe([2,1]);
+  // })
+
   test("Switch component renders", () => {
     expect(Switch).toHaveLength(1);
   });
 
   test("Find Switch routes", () => {
-    expect(Switch.find("Route")).toHaveLength(2);
+    expect(Switch.find("Route")).toHaveLength(3);
   });
 
   test("Routes are correct", () => {
     expect(Switch.find("#path1").props().path).toBe("/");
     expect(Switch.find("#path2").props().path).toBe("/questions");
   });
+
+  test('Check that the route props \'render\' are functions', () => {
+    expect(typeof Switch.find("#path1").props().render).toBe("function");
+    expect(typeof Switch.find("#path2").props().render).toBe("function");
+    expect(typeof Switch.find("#path3").props().render).toBe("function");
+  })
 });

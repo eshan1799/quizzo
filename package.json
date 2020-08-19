@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --mode-development",
     "build": "webpack -p",
     "test": "jest --watch --setupFiles ./src/test/setupTests.js",
-    "coverage": "jest --setupFiles ./src/test/setupTests.js --coverage --watchAll=false"
+    "cvg": "jest --setupFiles ./src/test/setupTests.js --coverage --watchAll=false"
   },
   "jest": {
     "moduleNameMapper": {

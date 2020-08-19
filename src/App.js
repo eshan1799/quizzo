@@ -71,12 +71,13 @@ class App extends React.Component {
 
 
           <Route
+            id="path3"
             path="/results"
             render={() => (
               <ResultsContainer state={this.state} resetState={this.resetState.bind(this)}/>
             )}
           ></Route>
- 
+
 
         </Switch>
 
