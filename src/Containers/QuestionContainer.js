@@ -22,11 +22,13 @@ class QuestionContainer extends Component {
   }
 
   componentWillUnmount() {
+    this.props.finalScore(this.state.score);
     this.resetState();
   }
 
   changeQuestionHandler = (event) => {
-      event.preventDefault();
+    event.preventDefault();
+    
       console.log(
         `Player: ${this.state.playerCount + 1}, Question: ${
           this.state.questionCount + 1
@@ -44,7 +46,6 @@ class QuestionContainer extends Component {
           return { playerCount: ++prev.playerCount };
         });
       } else {
-        this.props.finalScore(this.state.score);
         this.setState({ redirect: true });
         console.log("Quiz End");
       }
@@ -58,6 +59,8 @@ class QuestionContainer extends Component {
     const corrAns = this.state.players[this.state.playerCount].questions[
       this.state.questionCount
     ].correct_answer;
+    let positive_muliplier
+    let negative_muliplier
     //const idx = this.state.playerCount
     if (answer === corrAns) {
       let newScore = [...this.state.score];
