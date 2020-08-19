@@ -136,10 +136,12 @@ class InputContainer extends Component {
             })}
           </ol>
         </div>
-
-        <NavLink to="/questions">
-          <button>Start</button>
-        </NavLink>
+        {this.props.players.length !== 0 ?
+          <NavLink to="/questions">
+            <button>Start</button>
+          </NavLink> :
+          null
+        }
       </main>
     );
   }
