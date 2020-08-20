@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
+import "../styles/InputContainer.css";
 
 if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 import { NavLink } from "react-router-dom";
@@ -9,8 +10,8 @@ class InputContainer extends Component {
     super();
     this.state = {
       showModal: false,
-      topic: "animals",
-      difficulty: "easy",
+      chooseNoQ: false,
+      numOfQuestions: 5
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -20,6 +21,7 @@ class InputContainer extends Component {
   handleOpenModal() {
     this.setState({ showModal: true });
   }
+
   handleCloseModal(e) {
     e.preventDefault();
     this.setState({ showModal: false });
@@ -73,7 +75,7 @@ class InputContainer extends Component {
         category = 9;
     }
 
-    const userurl = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${this.state.difficulty}&type=multiple&encode=url3986`;
+    const userurl = `https://opentdb.com/api.php?amount=${this.state.numOfQuestions}&category=${category}&difficulty=${this.state.difficulty}&type=multiple&encode=url3986`;
 
     fetch(userurl)
       .then((r) => r.json())
@@ -101,8 +103,27 @@ class InputContainer extends Component {
     this.setState({ [name]: value });
   };
 
+  handleQuestionChoice = (e) => {
+    e.preventDefault();
+    this.setState({ chooseNoQ : true })
+  }
+
   render() {
     return (
+      !this.state.chooseNoQ ?
+      <main>
+      <form id="addPlayerButton" onSubmit={this.handleQuestionChoice}>
+        <h3>How many questions should be in your quiz?</h3>
+          <select onChange={this.handleInput} name="numOfQuestions">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+          <input type="submit"></input>
+      </form>
+      </main>
+      :
       <main>
         <button id="addPlayerButton" onClick={this.handleOpenModal}>
           Add player
@@ -118,16 +139,18 @@ class InputContainer extends Component {
               id="name"
               name="name"
               type="text"
+              maxLength="10"
               placeholder="Enter player name"
               onChange={this.handleInput}
             ></input>
             <label htmlFor="topic">Topic</label>
             <select
+              required
               name="topic"
               id="topic"
-              defaultValue="Hello"
               onChange={this.handleInput}
             >
+              <option value="">Choose a topic</option>
               <option value="animals">Animals</option>
               <option value="celebrities">Celebritites</option>
               <option value="films">Films</option>
@@ -145,11 +168,13 @@ class InputContainer extends Component {
             </select>
             <label htmlFor="difficulty">Difficulty</label>
             <select
+              required
               name="difficulty"
               id="difficulty"
               defaultValue="Good"
               onChange={this.handleInput}
             >
+              <option value="">Choose a difficulty</option>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
@@ -161,7 +186,30 @@ class InputContainer extends Component {
         </ReactModal>
 
         <div id="playerList">
-          <ol>
+        <table>
+          <thead>
+            <tr>
+              <th id="nameCol">Name</th>
+              <th id="topicCol">Topic</th>
+              <th id="diffCol">Difficulty</th>
+              <th id="deleteCol"></th>
+            </tr>
+          </thead>
+          <tbody>
+          {this.props.players.map((player, index) => {
+            return (
+              <tr key={index}>
+                <td>{player.name}</td>
+                <td>{player.topic}</td>
+                <td>{player.difficulty}</td>
+                <td><button onClick={() => this.props.deletePlayer(index)}>Delete</button></td>
+              </tr>
+            );
+          })}
+          </tbody>
+    </table>
+
+      {/*    <ol>
             {this.props.players.map((player, index) => {
               return (
                 <li key={index}>
@@ -171,7 +219,8 @@ class InputContainer extends Component {
                 </li>
               );
             })}
-          </ol>
+          </ol> */}
+
         </div>
         {this.props.players.length !== 0 ?
           <NavLink to="/questions">

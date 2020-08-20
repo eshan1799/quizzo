@@ -1,0 +1,42 @@
+main {
+  margin-top:45vh;
+  height: 10vh;
+  border: blue solid 1px;
+}
+
+#playerList {
+  height: 30vh;
+  width: 50%;
+  margin: auto;
+  border: black solid 1px;
+  overflow-y: scroll;
+}
+
+table {
+  width: 100%;
+}
+
+#nameCol {
+  width:25%;
+}
+#topicCol {
+  width: 45%;
+}
+#diffCol {
+  width: 20%;
+}
+#deleteCol {
+  width:10%;
+}
+
+th, td {
+  padding: 5px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+td {
+  font-size: 1.2rem;
+}
