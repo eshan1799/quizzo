@@ -10,10 +10,8 @@ class InputContainer extends Component {
     super();
     this.state = {
       showModal: false,
-      topic: "animals",
-      difficulty: "easy",
       chooseNoQ: false,
-      numOfQuestions: 5,
+      numOfQuestions: 5
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);

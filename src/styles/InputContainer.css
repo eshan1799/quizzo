@@ -6,7 +6,7 @@ main {
 
 #playerList {
   height: 30vh;
-  width: 70%;
+  width: 50%;
   margin: auto;
   border: black solid 1px;
   overflow-y: scroll;
