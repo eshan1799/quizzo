@@ -163,7 +163,7 @@ class InputContainer extends Component {
                 <option value="Maths">Maths</option>
                 <option value="Music">Music</option>
                 <option value="Science">Science</option>
-                <option value="Pports">Sports</option>
+                <option value="Sports">Sports</option>
                 <option value="TV">TV</option>
                 <option value="Vehicles">Vehicles</option>
                 <option value="Video Games">Video Games</option>
