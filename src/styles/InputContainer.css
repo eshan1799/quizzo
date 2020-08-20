@@ -1,8 +1,16 @@
 main {
-  margin-top:45vh;
-  height: 10vh;
-  border: blue solid 1px;
+  margin-top:25vh;
+  height: 50vh;
 }
+
+#questionHeading, #questionNumber{
+  font-size: 2rem
+}
+
+#pageHeading{
+  font-size:2.5rem;
+}
+
 
 #playerList {
   height: 30vh;
@@ -20,23 +28,81 @@ table {
   width:25%;
 }
 #topicCol {
-  width: 45%;
+  width: 37.5%;
 }
 #diffCol {
-  width: 20%;
+  width: 25%;
 }
 #deleteCol {
-  width:10%;
+  width:12.5%;
 }
+
+/* Alternating Row Colors */
+table th {
+  background-color: #fff;
+  color: black;
+}
+
+table tr:nth-child(even) {
+  background-color: #fff;
+}
+table tr:nth-child(odd) {
+ background-color: #eee;
+}
+/* End */
 
 th, td {
   padding: 5px;
 }
 
-table, th, td {
-  border: 1px solid black;
-}
 
+th{
+  font-size:1.5rem
+}
 td {
   font-size: 1.2rem;
+}
+
+#addPlayerButton, #start{
+  margin: 10px; 
+}
+
+#questionForm{
+  display:flex;
+  flex-direction: column;
+}
+
+#questionNumber{
+  width: 5%;
+  margin:auto
+}
+
+#questionSubmit{
+  width: 10%;
+  margin: 3vh auto
+}
+
+#addPlayerForm{
+  display:flex;
+  flex-direction: column;
+  width: 50%;
+  margin:auto
+}
+
+#addPlayerForm select,  #name{
+  margin: 20px 0;
+  font-size: 1.5rem
+}
+
+#submitPlayerButton{
+  width: 20%;
+  margin: 20px auto;
+  font-size: 1.5rem
+}
+
+#close{
+  margin:10px;
+  position: absolute;
+  top: 0;
+  right:0;
 }
