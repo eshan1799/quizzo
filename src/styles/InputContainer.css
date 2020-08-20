@@ -3,12 +3,14 @@ main {
   height: 50vh;
 }
 
-#pageHeading{
-  /* position: fixed; */
-  font-size:2.5rem;
-  /* top: 25vh; */
-  /* left: 30vw */
+#questionHeading, #questionsNumber{
+  font-size: 2rem
 }
+
+#pageHeading{
+  font-size:2.5rem;
+}
+
 
 #playerList {
   height: 30vh;
