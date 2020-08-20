@@ -134,7 +134,7 @@ class InputContainer extends Component {
           >
             <h1>Add New Player</h1>
             <form id="addPlayerForm" onSubmit={() => this.handleCloseModal(event)}>
-              {/* <label htmlFor="name">Nickname</label> */}
+
               <input
                 required
                 id="name"
@@ -144,7 +144,7 @@ class InputContainer extends Component {
                 placeholder="Choose a nickname (Max 10 characters)"
                 onChange={this.handleInput}
               ></input>
-              {/* <label htmlFor="topic">Topic</label> */}
+
               <select
                 required
                 name="topic"
@@ -167,7 +167,7 @@ class InputContainer extends Component {
                 <option value="Vehicles">Vehicles</option>
                 <option value="Video Games">Video Games</option>
               </select>
-              {/* <label htmlFor="difficulty">Difficulty</label> */}
+
               <select
                 required
                 name="difficulty"
