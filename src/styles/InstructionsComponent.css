@@ -1,0 +1,41 @@
+#InstructionsBody{
+    text-align: justify;
+    width: 60%;
+    margin:auto
+}
+
+h1{
+    margin:0
+}
+
+/* h2{
+    margin:5px
+} */
+
+#closeInstructions{
+  margin:10px;
+  position: absolute;
+  top: 0;
+  right:0;
+}
+
+th{
+    font-size:1rem;
+}
+
+td{
+    font-size:1rem;
+    width: 33.33%
+}
+
+table .left{
+    text-align:left
+}
+
+table .center{
+    text-align:center
+}
+
+table .right{
+    text-align:right
+}
