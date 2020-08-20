@@ -112,15 +112,15 @@ class InputContainer extends Component {
     return (
       !this.state.chooseNoQ ?
         <main>
-          <form id="addPlayerButton" onSubmit={this.handleQuestionChoice}>
-            <h3 id="questionHeading">How many questions should be in your quiz?</h3>
-            <select id="questionsNumber" onChange={this.handleInput} name="numOfQuestions">
+          <form id="questionForm" onSubmit={this.handleQuestionChoice}>
+            <h3 id="questionHeading">How many questions should be in each round?</h3>
+            <select id="questionNumber" onChange={this.handleInput} name="numOfQuestions">
               <option value="5">5</option>
               <option value="10">10</option>
               <option value="15">15</option>
               <option value="20">20</option>
             </select>
-            <input type="submit"></input>
+            <input id="questionSubmit" type="submit"></input>
           </form>
         </main>
         :

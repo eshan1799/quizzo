@@ -11,7 +11,7 @@ class InstructionsComponent extends Component {
                     <h2>How to Play</h2>
                     <ol>
                         <li>Click "Start Quiz" Button</li>
-                        <li>Select how manuy questions each player in the group will answer (individually!)</li>
+                        <li>Select how many questions each player in the group will answer (individually!)</li>
                         <li>Each enter a nickname and select your individual topic and difficulty level</li>
                         <li>Check everyone is good to go, then press start</li>
                         <li>Have Fun!</li>

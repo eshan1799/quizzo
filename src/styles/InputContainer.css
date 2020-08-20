@@ -3,7 +3,7 @@ main {
   height: 50vh;
 }
 
-#questionHeading, #questionsNumber{
+#questionHeading, #questionNumber{
   font-size: 2rem
 }
 
@@ -55,9 +55,6 @@ th, td {
   padding: 5px;
 }
 
-/* table, th, td {
-  border: 1px solid black;
-} */
 
 th{
   font-size:1.5rem
@@ -67,7 +64,22 @@ td {
 }
 
 #addPlayerButton, #start{
-  margin: 10px
+  margin: 10px; 
+}
+
+#questionForm{
+  display:flex;
+  flex-direction: column;
+}
+
+#questionNumber{
+  width: 5%;
+  margin:auto
+}
+
+#questionSubmit{
+  width: 10%;
+  margin: 3vh auto
 }
 
 #addPlayerForm{
