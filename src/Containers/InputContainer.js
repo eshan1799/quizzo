@@ -141,7 +141,7 @@ class InputContainer extends Component {
               id="name"
               name="name"
               type="text"
-              maxlength="10"
+              maxLength="10"
               placeholder="Enter player name"
               onChange={this.handleInput}
             ></input>
@@ -184,8 +184,31 @@ class InputContainer extends Component {
           <button onClick={this.closeModalButton}>Close</button>
         </ReactModal>
 
-        <div id="playerList">        
-          <ol>
+        <div id="playerList">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Topic</th>
+              <th>Difficulty</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          {this.props.players.map((player, index) => {
+            return (
+              <tr key={index}>
+                <td>{player.name}</td>
+                <td>{player.topic}</td>
+                <td>{player.difficulty}</td>
+                <td><button onClick={() => this.props.deletePlayer(index)}>Delete</button></td>
+              </tr>
+            );
+          })}
+          </tbody>
+    </table>
+
+      {/*    <ol>
             {this.props.players.map((player, index) => {
               return (
                 <li key={index}>
@@ -195,7 +218,8 @@ class InputContainer extends Component {
                 </li>
               );
             })}
-          </ol>
+          </ol> */}
+
         </div>
         {this.props.players.length !== 0 ?
           <NavLink to="/questions">
