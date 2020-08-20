@@ -24,8 +24,20 @@ body {
 }
 
 #welcomeBox {
-  margin-top:45vh;
-  height: 10vh;
+  margin-top:25vh;
+  height: 50vh;
+}
+
+#welcomeBox h1{
+  font-size: 3.5rem
+}
+
+#welcomeBox h3{
+  font-size: 2rem;
+}
+
+#welcomeBox button{
+  margin: 5vh
 }
 
 #inputPage {
