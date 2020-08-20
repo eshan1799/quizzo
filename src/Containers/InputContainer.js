@@ -125,6 +125,7 @@ class InputContainer extends Component {
         </main>
         :
         <main>
+          <h1 id="pageHeading">Pick your speciality!</h1>
           <button id="addPlayerButton" onClick={this.handleOpenModal}>
             Add player
         </button>
