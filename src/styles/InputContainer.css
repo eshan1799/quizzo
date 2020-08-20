@@ -68,7 +68,20 @@ td {
   margin:auto
 }
 
-#addPlayerForm select,  #addPlayerForm  input{
+#addPlayerForm select,  #name{
   margin: 20px 0;
   font-size: 1.5rem
+}
+
+#submitPlayerButton{
+  width: 20%;
+  margin: 20px auto;
+  font-size: 1.5rem
+}
+
+#close{
+  margin:10px;
+  position: absolute;
+  top: 0;
+  right:0;
 }
