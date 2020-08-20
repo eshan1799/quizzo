@@ -67,3 +67,8 @@ td {
   width: 50%;
   margin:auto
 }
+
+#addPlayerForm select,  #addPlayerForm  input{
+  margin: 20px 0;
+  font-size: 1.5rem
+}

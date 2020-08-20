@@ -20,6 +20,7 @@ body {
 
 #welcomePage {
   height: 100vh;
+  border: rgba(0,0,0,0) solid 1px /*Do not remove!*/
 }
 
 #welcomeBox {
@@ -28,6 +29,6 @@ body {
 }
 
 #inputPage {
-  
+  border: rgba(0,0,0,0) solid 1px; /*Do not remove!*/
   height: 100vh;
 }
