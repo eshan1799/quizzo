@@ -132,15 +132,15 @@ class InputContainer extends Component {
             isOpen={this.state.showModal}
             contentLabel="addPlayer Modal"
           >
-            <form onSubmit={() => this.handleCloseModal(event)}>
-              <label htmlFor="name">Name</label>
+            <form id="addPlayerForm" onSubmit={() => this.handleCloseModal(event)}>
+              <label htmlFor="name">Nickname</label>
               <input
                 required
                 id="name"
                 name="name"
                 type="text"
                 maxLength="10"
-                placeholder="Enter player name"
+                placeholder="Enter player nickname (Max 10 characters)"
                 onChange={this.handleInput}
               ></input>
               <label htmlFor="topic">Topic</label>
@@ -212,7 +212,7 @@ class InputContainer extends Component {
           </div>
           {this.props.players.length !== 0 ?
             <NavLink to="/questions">
-              <button>Start</button>
+              <button id="start">Start</button>
             </NavLink> :
             null
           }

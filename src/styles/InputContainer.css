@@ -1,7 +1,6 @@
 main {
   margin-top:45vh;
   height: 10vh;
-  border: blue solid 1px;
 }
 
 #playerList {
@@ -47,13 +46,24 @@ th, td {
   padding: 5px;
 }
 
-table, th, td {
+/* table, th, td {
   border: 1px solid black;
-}
+} */
 
 th{
   font-size:1.5rem
 }
 td {
   font-size: 1.2rem;
+}
+
+#addPlayerButton, #start{
+  margin: 10px
+}
+
+#addPlayerForm{
+  display:flex;
+  flex-direction: column;
+  width: 50%;
+  margin:auto
 }
