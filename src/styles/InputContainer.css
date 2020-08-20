@@ -16,6 +16,23 @@ table {
   width: 100%;
 }
 
+#nameCol {
+  width:25%;
+}
+#topicCol {
+  width: 45%;
+}
+#diffCol {
+  width: 20%;
+}
+#deleteCol {
+  width:10%;
+}
+
+th, td {
+  padding: 5px;
+}
+
 table, th, td {
   border: 1px solid black;
 }

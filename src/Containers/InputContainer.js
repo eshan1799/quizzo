@@ -188,10 +188,10 @@ class InputContainer extends Component {
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Topic</th>
-              <th>Difficulty</th>
-              <th></th>
+              <th id="nameCol">Name</th>
+              <th id="topicCol">Topic</th>
+              <th id="diffCol">Difficulty</th>
+              <th id="deleteCol"></th>
             </tr>
           </thead>
           <tbody>
