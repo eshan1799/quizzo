@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
+import "../styles/InputContainer.css";
 
 if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 import { NavLink } from "react-router-dom";
@@ -140,6 +141,7 @@ class InputContainer extends Component {
               id="name"
               name="name"
               type="text"
+              maxlength="10"
               placeholder="Enter player name"
               onChange={this.handleInput}
             ></input>
@@ -182,7 +184,7 @@ class InputContainer extends Component {
           <button onClick={this.closeModalButton}>Close</button>
         </ReactModal>
 
-        <div id="playerList">
+        <div id="playerList">        
           <ol>
             {this.props.players.map((player, index) => {
               return (

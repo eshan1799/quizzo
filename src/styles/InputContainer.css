@@ -1,0 +1,18 @@
+main {
+  margin-top:45vh;
+  height: 10vh;
+  border: blue solid 1px;
+}
+
+ol {
+  height: 30vh;
+  width: 70%;
+  margin: auto;
+  border: black solid 1px;
+  overflow-y: scroll;
+  display: inline-block;
+}
+
+li {
+  font-size: 1rem;
+}
