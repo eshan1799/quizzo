@@ -209,18 +209,6 @@ class InputContainer extends Component {
               </tbody>
             </table>
 
-            {/*    <ol>
-            {this.props.players.map((player, index) => {
-              return (
-                <li key={index}>
-                  Player name: {player.name}, Difficulty: {player.difficulty},
-                  Topic: {player.topic}
-                  <button onClick={() => this.props.deletePlayer(index)}>Delete</button>
-                </li>
-              );
-            })}
-          </ol> */}
-
           </div>
           {this.props.players.length !== 0 ?
             <NavLink to="/questions">
