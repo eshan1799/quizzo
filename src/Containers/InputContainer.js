@@ -147,11 +147,12 @@ class InputContainer extends Component {
             ></input>
             <label htmlFor="topic">Topic</label>
             <select
+              required
               name="topic"
               id="topic"
-              defaultValue="Hello"
               onChange={this.handleInput}
             >
+              <option value="">Choose a topic</option>
               <option value="animals">Animals</option>
               <option value="celebrities">Celebritites</option>
               <option value="films">Films</option>
@@ -169,11 +170,13 @@ class InputContainer extends Component {
             </select>
             <label htmlFor="difficulty">Difficulty</label>
             <select
+              required
               name="difficulty"
               id="difficulty"
               defaultValue="Good"
               onChange={this.handleInput}
             >
+              <option value="">Choose a difficulty</option>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
