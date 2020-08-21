@@ -22,8 +22,8 @@ class InputContainer extends Component {
     this.setState({ showModal: true });
   }
 
-  handleCloseModal(e) {
-    e.preventDefault();
+  handleCloseModal() {
+    // e.preventDefault();
     this.setState({ showModal: false });
 
     let category;
@@ -103,9 +103,9 @@ class InputContainer extends Component {
     this.setState({ [name]: value });
   };
 
-  handleQuestionChoice = (e) => {
-    e.preventDefault();
-    this.setState({ chooseNoQ: true })
+  handleQuestionChoice = () => {
+    // e.preventDefault();
+    this.setState({ chooseNoQ : true })
   }
 
   render() {
@@ -204,7 +204,7 @@ class InputContainer extends Component {
                       <td>{player.name}</td>
                       <td>{player.topic}</td>
                       <td>{player.difficulty}</td>
-                      <td><button onClick={() => this.props.deletePlayer(index)}>Delete</button></td>
+                      <td><button id='deletePlayer' onClick={() => this.props.deletePlayer(index)}>Delete</button></td>
                     </tr>
                   );
                 })}

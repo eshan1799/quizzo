@@ -44,6 +44,7 @@ class App extends React.Component {
   handleCloseModal = () => {
     this.setState({ showModal: false });
   }
+
   deletePlayer = (index) => {
     const newPlayers = [...this.state.players];
     newPlayers.splice(index, 1)
@@ -114,7 +115,6 @@ class App extends React.Component {
             path="/questions"
             render={() => (
               <QuestionContainer
-                //{...props}
                 state={this.state}
                 finalScore={this.finalScore.bind(this)}
               />
