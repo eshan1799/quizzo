@@ -91,14 +91,4 @@ describe("InputContainer", () => {
   });
 
 
-// // NOT QUITE WORKING BUT CLOSE
-//   test('Check clicking Add player runs handleOpenModal', () => {
-//     component.find("#addPlayerButton").simulate("submit");
-//     const instance = component.instance();
-//     const addPlayerBtn = component.find('#addPlayerButton')
-//     const handleOpenModal = sinon.spy(instance, 'handleOpenModal');
-//     addPlayerBtn.simulate('click');
-//     expect(handleOpenModal.calledOnce).toBe(true);
-//   })
-
 });
