@@ -54,7 +54,9 @@ class App extends React.Component {
     return (
       <>
         <nav>
-          <i class="fas fa-brain fa-lg">TB</i>
+          <i class="fas fa-brain fa-lg">
+            <span>TB</span>
+          </i>
           <button
             onClick={() => {
               if (
@@ -95,7 +97,12 @@ class App extends React.Component {
               <>
                 <section id="welcomePage">
                   <div id="welcomeBox">
-                    <h1>TriviaBoss</h1>
+                    <h1>
+                      TriviaBoss{" "}
+                      <span>
+                        <i class="fas fa-brain fa-lg" />
+                      </span>
+                    </h1>
                     <h3>
                       <em>The quiz where everyone's an expert!</em>
                     </h3>
