@@ -12,7 +12,7 @@ describe("App", () => {
   });
 
   test("Check title content", () => {
-    expect(component.find("h1").text()).toBe("Quizzo!");
+    expect(component.find("h1").text()).toBe("TriviaBoss");
   });
 
   test("Check initial data types of state values", () => {

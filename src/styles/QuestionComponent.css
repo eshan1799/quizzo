@@ -1,0 +1,20 @@
+
+#answerBox{
+    
+    width: 60vw;
+    margin:10vh auto 0 auto ;
+}
+#answerForm {
+    text-align: left
+}
+
+#answerForm h3, #answerForm h2{
+    text-align: center
+}
+
+#answers{
+    overflow: visible;
+    font-size: 1.8rem;
+    margin: 5vh auto;
+    width:25vw;
+}

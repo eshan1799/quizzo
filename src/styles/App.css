@@ -1,8 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-body {
+* {
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+nav {
+  position:fixed;
+  top:0;
+  width: 90vw;
+  margin: auto;
+}
+
+body {
+  width: 90vw;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
 }
 
 #welcomePage {
+  height: 100vh;
+  border: rgba(0,0,0,0) solid 1px /*Do not remove!*/
+}
+
+#welcomeBox {
+  margin-top:25vh;
+  height: 50vh;
+}
+
+#welcomeBox h1{
+  font-size: 3.5rem
+}
+
+#welcomeBox h3{
+  font-size: 2rem;
+}
+
+#welcomeBox button{
+  margin: 5vh
+}
+
+#inputPage {
+  border: rgba(0,0,0,0) solid 1px; /*Do not remove!*/
   height: 100vh;
 }
