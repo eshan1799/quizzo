@@ -23,8 +23,8 @@ class InputContainer extends Component {
     this.setState({ showModal: true });
   }
 
-  handleCloseModal(e) {
-    e.preventDefault();
+  handleCloseModal() {
+    // e.preventDefault();
     this.setState({ showModal: false });
 
     let category;
@@ -104,8 +104,8 @@ class InputContainer extends Component {
     this.setState({ [name]: value });
   };
 
-  handleQuestionChoice = (e) => {
-    e.preventDefault();
+  handleQuestionChoice = () => {
+    // e.preventDefault();
     this.setState({ chooseNoQ : true })
   }
 
@@ -133,7 +133,7 @@ class InputContainer extends Component {
           isOpen={this.state.showModal}
           contentLabel="addPlayer Modal"
         >
-          <form onSubmit={() => this.handleCloseModal(event)}>
+          <form id='closeInputForm' onSubmit={() => this.handleCloseModal()}>
             <label htmlFor="name">Name</label>
             <input
               required
@@ -179,7 +179,7 @@ class InputContainer extends Component {
 
             <input id="submitPlayerButton" type="submit"></input>
           </form>
-          <button onClick={this.closeModalButton}>Close</button>
+          <button id='closeModalButton' onClick={this.closeModalButton}>Close</button>
         </ReactModal>
 
         <div id="playerList">
@@ -189,7 +189,7 @@ class InputContainer extends Component {
                 <li key={index}>
                   Player name: {player.name}, Difficulty: {player.difficulty},
                   Topic: {player.topic}
-                  <button onClick={() => this.props.deletePlayer(index)}>Delete</button>
+                  <button id='deletePlayer' onClick={() => this.props.deletePlayer(index)}>Delete</button>
                 </li>
               );
             })}

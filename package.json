@@ -26,6 +26,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.2.2",
+    "jest-fetch-mock": "^3.0.3",
     "sinon": "^9.0.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
