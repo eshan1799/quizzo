@@ -40,6 +40,11 @@ nav i {
   position: absolute;
   left: 5vh;
   top: 2vh;
+  color: #ff1493;
+}
+
+h1 i {
+  color: #ff1493;
 }
 
 body {
