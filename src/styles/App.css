@@ -5,10 +5,13 @@
 }
 
 nav {
-  position:fixed;
-  top:0;
+  height: 7vh;
+  position: fixed;
+  top: 0;
   width: 90vw;
   margin: auto;
+  background-color: lightgrey;
+  border-radius: 0 0 5px 5px;
 }
 
 body {
@@ -20,27 +23,34 @@ body {
 
 #welcomePage {
   height: 100vh;
-  border: rgba(0,0,0,0) solid 1px /*Do not remove!*/
+  border: rgba(0, 0, 0, 0) solid 1px; /*Do not remove!*/
 }
 
 #welcomeBox {
-  margin-top:25vh;
+  margin-top: 25vh;
   height: 50vh;
 }
 
-#welcomeBox h1{
-  font-size: 3.5rem
+#welcomeBox h1 {
+  font-size: 3.5rem;
 }
 
-#welcomeBox h3{
+#welcomeBox h3 {
   font-size: 2rem;
 }
 
-#welcomeBox button{
-  margin: 5vh
+#welcomeBox button {
+  margin: 5vh;
 }
 
 #inputPage {
-  border: rgba(0,0,0,0) solid 1px; /*Do not remove!*/
+  border: rgba(0, 0, 0, 0) solid 1px; /*Do not remove!*/
   height: 100vh;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: lightgrey;
 }
