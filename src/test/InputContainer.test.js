@@ -24,11 +24,11 @@ describe("InputContainer", () => {
     expect(
         component.state("topic") +
         component.state("difficulty")
-    ).toBe("generalKnowledge"+"easy");
+    ).toBe("animals"+"easy");
   });
 
 
-  test('button "openAddPlayer" runs OpenModal method', () => {
+  test('button "addPlayerButton" runs OpenModal method', () => {
     component.find("#addPlayerButton").simulate("click");
     expect(component.state("showModal")).toBe(true);
   });
@@ -44,7 +44,7 @@ describe("InputContainer", () => {
     expect(component.state('difficulty')).toBe('hard');
   })
 
-  test('button "closePlayerButton" runs CloseModal method', () => {
+  test('button "submitPlayerButton" runs CloseModal method', () => {
     component.find("#submitPlayerButton").simulate("click");
     expect(component.state("showModal")).toBe(false);
   });
