@@ -48,6 +48,11 @@ describe("InputContainer", () => {
       component.find("#difficulty").simulate("change", {target: {name: "difficulty", value: "hard"}});
       expect(component.state('difficulty')).toBe('hard');
     })
+    
+    test('button "addPlayerButton" runs OpenModal method', () => {
+    component.find("#addPlayerButton").simulate("click");
+    expect(component.state("showModal")).toBe(true);
+  });
 
     test('button "addPlayerButton" runs CloseModal method', () => {
       component.find("#addPlayerButton").simulate("submit");
@@ -61,6 +66,7 @@ describe("InputContainer", () => {
       component.find("#closeModalButton").simulate("click");
       expect(component.state("showModal")).toBe(false);
     });
+
 
     test('form "closeInputForm" runs handleCloseModal method on submit', () => {
       component.find("#addPlayerButton").simulate("submit");
@@ -78,6 +84,12 @@ describe("InputContainer", () => {
       const handleOpenModal = sinon.spy(instance, 'handleOpenModal');
       expect(handleOpenModal.calledOnce).toBe(true);
     });
+
+  test('button "submitPlayerButton" runs CloseModal method', () => {
+    component.find("#submitPlayerButton").simulate("click");
+    expect(component.state("showModal")).toBe(false);
+  });
+
 
 // // NOT QUITE WORKING BUT CLOSE
 //   test('Check clicking Add player runs handleOpenModal', () => {
