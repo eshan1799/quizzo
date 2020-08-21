@@ -1,0 +1,39 @@
+#resultsContainer {
+    margin:15vh auto 0 auto ;
+    align-content: center;
+}
+
+.first {
+    color: gold;
+}
+
+.second {
+    color: silver;
+}
+
+.third {
+    color: brown;
+}
+
+#tableResults {
+    width: 30%;
+    margin: auto;
+    margin-bottom: 4vh;
+}
+
+.positionCol {
+    width: 35%;
+}
+
+.medalCol {
+    width: 15%;
+    background-color: white;
+}
+
+.nameCol {
+    width: 35%;
+}
+
+.scoreCol {
+    width: 15%;
+}
