@@ -25,7 +25,7 @@ class PopupComponent extends Component {
 
     render(){
       return(
-        <ReactModal
+        <ReactModal id="modal"
           isOpen={this.state.showModal}
           contentLabel="addPlayer Modal"
         >

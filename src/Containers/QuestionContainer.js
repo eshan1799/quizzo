@@ -30,7 +30,6 @@ class QuestionContainer extends Component {
     this.props.finalScore(this.state.score);
   }
 
-  
   changeQuestionHandler = (event) => {
     event.preventDefault();
     
@@ -92,8 +91,6 @@ class QuestionContainer extends Component {
   };
 
   render() {
-    //It's running everything twice?
-    //counter = counter + 1;
     if (this.state.redirect){
       return (
         <div>
