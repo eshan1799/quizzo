@@ -8,10 +8,14 @@ import { Redirect } from "react-router-dom";
 class QuestionContainer extends Component {
   state = this.props.state;
 
-  snapState = {};
-  resetState = () => {
-    return this.setState({...this.snapState})
-  }
+  snapState = {
+    playerCount: 0,
+    questionCount: 0,
+    leaderboard: [],
+    players: [],
+    score: [],
+    showModal: false
+  };
 
   componentDidMount() {
     let scoreArr = [];
@@ -24,25 +28,19 @@ class QuestionContainer extends Component {
 
   componentWillUnmount() {
     this.props.finalScore(this.state.score);
-    this.resetState();
   }
 
+  
   changeQuestionHandler = (event) => {
     event.preventDefault();
     
-      console.log(
-        `Player: ${this.state.playerCount + 1}, Question: ${
-          this.state.questionCount + 1
-        }`
-      );
-      if (
-        this.state.questionCount + 1 <
-        this.state.players[this.state.playerCount].questions.length
-      ) {
+      console.log(`Player: ${this.state.playerCount + 1}, Question: ${this.state.questionCount + 1}`);
+
+      // I the user has answered less questions than the total number of questions
+      if (this.state.questionCount + 1 < this.state.players[this.state.playerCount].questions.length) { 
         this.setState((prev) => ({ questionCount: ++prev.questionCount }));
       } else if (this.state.playerCount + 1 < this.state.players.length) {
         this.setState({ questionCount: 0 });
-
         this.setState((prev) => {
           return { playerCount: ++prev.playerCount };
         });
@@ -99,15 +97,15 @@ class QuestionContainer extends Component {
     if (this.state.redirect){
       return (
         <div>
-          <Redirect to="/results"/>
+          <Redirect id="#redirect" to="/results"/>
         </div>
       )
     } else {
       if (this.state.questionCount === 0) {
         return (
-          <div>
-            <PopupComponent player = {this.state.players[this.state.playerCount].name}/>
-            <QuestionComponent
+          <div id="questions">
+            <PopupComponent id="newPlayerModal" player={this.state.players[this.state.playerCount].name}/>
+            <QuestionComponent id="questionComponent"
               on_submit={this.changeQuestionHandler}
               question_no={this.state.questionCount + 1}
               name={this.state.players[this.state.playerCount].name}
@@ -131,8 +129,8 @@ class QuestionContainer extends Component {
         )
       } else {
         return (
-          <div>
-            <QuestionComponent
+          <div id="questions">
+            <QuestionComponent id="questionComponent"
               on_submit={this.changeQuestionHandler}
               question_no={this.state.questionCount + 1}
               name={this.state.players[this.state.playerCount].name}
