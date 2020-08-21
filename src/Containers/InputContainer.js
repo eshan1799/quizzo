@@ -71,8 +71,10 @@ class InputContainer extends Component {
       case "Celebrities":
         category = 26;
         break;
+      case "Random":
+        category = ""
       default:
-        category = 9;
+        category = "";
     }
 
     const userurl = `https://opentdb.com/api.php?amount=${this.state.numOfQuestions}&category=${category}&difficulty=${this.state.difficulty.toLowerCase()}&type=multiple&encode=url3986`;
@@ -105,7 +107,7 @@ class InputContainer extends Component {
 
   handleQuestionChoice = () => {
     // e.preventDefault();
-    this.setState({ chooseNoQ : true })
+    this.setState({ chooseNoQ: true })
   }
 
   render() {
@@ -153,6 +155,7 @@ class InputContainer extends Component {
                 onChange={this.handleInput}
               >
                 <option value="">Choose a topic</option>
+                <option value="Random">Random</option>
                 <option value="Animals">Animals</option>
                 <option value="Celebrities">Celebritites</option>
                 <option value="Films">Films</option>
@@ -184,7 +187,7 @@ class InputContainer extends Component {
 
               <input id="submitPlayerButton" type="submit"></input>
             </form>
-            <i id="close" onClick={this.closeModalButton} class="far fa-window-close fa-3x"></i>
+            <i id="close" onClick={this.closeModalButton} className="far fa-window-close fa-3x"></i>
           </ReactModal>
 
           <div id="playerList">
