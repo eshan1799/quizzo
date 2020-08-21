@@ -71,8 +71,10 @@ class InputContainer extends Component {
       case "Celebrities":
         category = 26;
         break;
+      case "Random":
+        category = ""
       default:
-        category = 9;
+        category = "";
     }
 
     const userurl = `https://opentdb.com/api.php?amount=${this.state.numOfQuestions}&category=${category}&difficulty=${this.state.difficulty.toLowerCase()}&type=multiple&encode=url3986`;
@@ -153,6 +155,7 @@ class InputContainer extends Component {
                 onChange={this.handleInput}
               >
                 <option value="">Choose a topic</option>
+                <option value="Random">Random</option>
                 <option value="Animals">Animals</option>
                 <option value="Celebrities">Celebritites</option>
                 <option value="Films">Films</option>
