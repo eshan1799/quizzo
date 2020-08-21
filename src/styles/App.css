@@ -76,7 +76,13 @@ body {
   height: 100vh;
 }
 
-button {
+input:active,
+input:focus {
+  outline: none;
+}
+
+button,
+input[type="submit"] {
   cursor: pointer;
   padding: 5px;
   border-radius: 5px;
@@ -84,16 +90,20 @@ button {
   background-color: lightgrey;
 }
 
-button:hover {
+button:hover,
+input[type="submit"]:hover {
   background-color: grey;
   color: whitesmoke;
 }
 
-button:active {
+button:active,
+input[type="submit"]:active {
   background-color: black;
 }
 
 button:active,
-button:focus {
+button:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
   outline: none;
 }
