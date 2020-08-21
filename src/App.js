@@ -91,18 +91,22 @@ class App extends React.Component {
             render={() => (
               <>
                 <section id="welcomePage">
-                  <h1>TriviaBoss</h1>
-                  <h3><em>The quiz where everyone's an expert!</em></h3>
-                  <AnchorLink href="#addPlayerButton">
-                    <button>Start quiz</button>
-                  </AnchorLink>
+                  <div id="welcomeBox">
+                    <h1>TriviaBoss</h1>
+                    <h3><em>The quiz where everyone's an expert!</em></h3>
+                    <AnchorLink href="#questionForm">
+                      <button>Start quiz</button>
+                    </AnchorLink>
+                  </div>
                 </section>
 
-                <InputContainer
-                  handleToUpdate={this.handleToUpdate.bind(this)}
-                  players={this.state.players}
-                  deletePlayer={this.deletePlayer.bind(this)}
-                />
+                <section id="inputPage">
+                  <InputContainer
+                    handleToUpdate={this.handleToUpdate.bind(this)}
+                    players={this.state.players}
+                    deletePlayer={this.deletePlayer.bind(this)}
+                  />
+                </section>
               </>
             )}
           />
