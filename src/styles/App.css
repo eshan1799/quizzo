@@ -16,7 +16,23 @@ nav {
 }
 
 nav button {
+  cursor: pointer;
   margin: 5px 10px;
+  background-color: whitesmoke;
+}
+
+nav button:hover {
+  background-color: lightgrey;
+}
+
+nav button:focus,
+button:active {
+  outline: none;
+}
+
+nav button:active {
+  background-color: grey;
+  color: whitesmoke;
 }
 
 nav i {
@@ -61,8 +77,23 @@ body {
 }
 
 button {
+  cursor: pointer;
   padding: 5px;
   border-radius: 5px;
   border: none;
   background-color: lightgrey;
+}
+
+button:hover {
+  background-color: grey;
+  color: whitesmoke;
+}
+
+button:active {
+  background-color: black;
+}
+
+button:active,
+button:focus {
+  outline: none;
 }
