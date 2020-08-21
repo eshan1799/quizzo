@@ -23,6 +23,7 @@ class PopupComponent extends Component {
     this.setState({ showModal: false });
   }
 
+
   render() {
     return (
       <ReactModal isOpen={this.state.showModal} contentLabel="addPlayer Modal">
@@ -34,6 +35,7 @@ class PopupComponent extends Component {
         <button onClick={this.handleCloseModal}>Start</button>
       </ReactModal>
     );
+
   }
 }
 

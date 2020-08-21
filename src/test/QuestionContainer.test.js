@@ -7,7 +7,8 @@ describe("QuestionContainer", () => {
     playerCount: 0,
     questionCount: 0,
     leaderboard: [],
-    players: [{ name: "test1", questions: [{ question1: "what is it?" }, { question2: "what is it?"}] }],
+    players: [{ name: "test1", questions: [{ question1: "what is it?", correct_answer: "yes"}, { question2: "what is it?", correct_answer: "yes"}] },
+    { name: "test2", questions: [{ question1: "what is it?" }, { question2: "what is it?"}] }],
     score: [100],
     redirect: false,
     showModal: false
@@ -24,9 +25,11 @@ describe("QuestionContainer", () => {
   });
 
   it("Conditionally redirects", () => {
+    stateStub.redirect = true;
     if (stateStub.redirect === true ){
       expect(component.find('#redirect')).toExist;
     }
+    stateStub.redirect = false;
   });
 
   it("Conditionally renders modal", () => {
@@ -39,33 +42,41 @@ describe("QuestionContainer", () => {
     expect(component.find('#questions')).toExist;
   })
 
+  // Giving up here...
   it("Increases question count after a user has answered a question", () => {
     const instance = component.instance();
-    const changeQuestionHandler = sinon.spy(instance, 'changeQuestionHandler');
-    const oldCount = stateStub.questionCount
-    const event = { 
-      preventDefault: (event) => "Do nothing",
+    const changeQuestionHandlerSpy = sinon.spy(instance, 'changeQuestionHandler');
+    const fakeEvent = { 
+      preventDefault: () => "Do nothing",
       target: {
         answer: { value: "Fake value" },
         reset: () => "Do nothing"
       }
     }
 
-    class Foo extends QuestionContainer {
-      state = stateStub;
-      changeQuestionHandler = changeQuestionHandler;
-      // changeQuestionHandler = () => {
-      //   this.setState((prev) => ({ questionCount: ++prev.questionCount }))
-      // }
+    class Foo extends Component {
+      state = {...stateStub};
+      changeQuestionHandler = () => changeQuestionHandlerSpy(fakeEvent);
       
       render(){
-        //console.log(stateStub.players[stateStub.playerCount].questions.length)
-        // Absolutely nothing
+        return (
+          <form id="testform" onSubmit={this.changeQuestionHandler}>
+            <button></button>
+          </form>
+        )
       }
     }
-    const instance2 = shallow(<Foo />).instance()
-    instance2.changeQuestionHandler(event)
-    expect(instance2.state.questionCount).toBe(oldCount + 1);
+
+    const wrapper = shallow(<Foo />);
+    const form = wrapper.find('#testform');
+
+    wrapper.setState( { questionCount: 1 } )
+    form.simulate("submit", fakeEvent);
+    expect(wrapper.state('questionCount')).toBe(2);
+
+    wrapper.setState( { questionCount: 2 } )
+    form.simulate("submit", fakeEvent);
+    expect(wrapper.state('questionCount')).toBe(2);
   })
 
   it("lifecycle method should have been called", () => {
@@ -93,6 +104,19 @@ describe("QuestionContainer", () => {
     expect(componentWillUnmount.mock.calls.length).toBe(1)
   })
 
-     // TO ACCESS THE STATE YOU NEED TO ACTUALLY MAKE AN INSTANCE OF THE CLASS... Literally spent hours on this
-    // I'm testing the function by copying in the syntax, using the spy version does not work... It's the same error we get when a state has no been passed in
+  // TO ACCESS THE STATE YOU NEED TO ACTUALLY MAKE AN INSTANCE OF THE CLASS... Literally spent hours on this
+  // I'm testing the function by copying in the syntax, using the spy version does not work... It's the same error we get when a state has no been passed in
+  it("checks the answer is correct", () => {
+    const instance = component.instance();
+    const checkAnswer = sinon.spy(instance, 'checkAnswer');
+    const fakeEvent = { 
+      preventDefault: () => "Do nothing",
+      target: {
+        answer: { value: "yes" },
+        reset: () => "Do nothing"
+      }
+    }
+    checkAnswer(fakeEvent.target.answer.value)
+    expect()
+  })
 });

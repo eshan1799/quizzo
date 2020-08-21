@@ -97,9 +97,9 @@ class QuestionContainer extends Component {
   };
 
   render() {
-    //It's running everything twice?
-    //counter = counter + 1;
-    if (this.state.redirect) {
+
+    if (this.state.redirect){
+
       return (
         <div>
           <Redirect id="#redirect" to="/results" />
