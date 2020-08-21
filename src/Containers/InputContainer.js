@@ -184,7 +184,7 @@ class InputContainer extends Component {
 
               <input id="submitPlayerButton" type="submit"></input>
             </form>
-            <i id="close" onClick={this.closeModalButton} class="far fa-window-close fa-3x"></i>
+            <i id="close" onClick={this.closeModalButton} className="far fa-window-close fa-3x"></i>
           </ReactModal>
 
           <div id="playerList">
