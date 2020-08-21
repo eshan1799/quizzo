@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import ReactModal from "react-modal";
 
 if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
@@ -7,7 +7,7 @@ class PopupComponent extends Component {
   constructor() {
     super();
     this.state = {
-      showModal: true
+      showModal: true,
     };
 
     // this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -23,20 +23,18 @@ class PopupComponent extends Component {
     this.setState({ showModal: false });
   }
 
-    render(){
-      return(
-        <ReactModal
-          isOpen={this.state.showModal}
-          contentLabel="addPlayer Modal"
-        >
-          <h1>{this.props.player}</h1>
-          <h2>Are you ready to play?</h2>
+  render() {
+    return (
+      <ReactModal isOpen={this.state.showModal} contentLabel="addPlayer Modal">
+        <h1>{this.props.player}</h1>
+        <h2>Topic: {this.props.topic}</h2>
+        <h2>Difficulty: {this.props.difficulty}</h2>
+        <h1>Are you ready to play?</h1>
 
-          <button onClick={this.handleCloseModal}>Start</button>
-        </ReactModal>
-
-      )
-    }
+        <button onClick={this.handleCloseModal}>Start</button>
+      </ReactModal>
+    );
   }
+}
 
-export default PopupComponent
+export default PopupComponent;
