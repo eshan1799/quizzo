@@ -1,22 +1,22 @@
-#answerBox{
-    overflow:auto;
-    /* width: 60vw; */
-    display: flex;
-    justify-content: center;
-    margin:10vh auto 0 auto ;
+#answerBox {
+  overflow: auto;
+  /* width: 60vw; */
+  display: flex;
+  justify-content: center;
+  margin: 10vh auto 0 auto;
 }
 #answerForm {
-    text-align: left
+  text-align: left;
 }
 
-#answerForm h3, #answerForm h2{
-    text-align: center
+#answerForm h3,
+#answerForm h2 {
+  text-align: center;
 }
 
-#answers{
-    
-    font-size: 1.8rem;
-    margin: 5vh auto;
-    display: flex;
-    justify-content: center;
+#answers {
+  font-size: 1.8rem;
+  margin: 5vh auto;
+  display: flex;
+  justify-content: center;
 }

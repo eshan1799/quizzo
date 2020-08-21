@@ -9,10 +9,10 @@ nav {
   height: 7vh;
   position: fixed;
   top: 0;
-  width: 90vw;
+  left: 0;
+  width: 100vw;
   margin: auto;
   background-color: whitesmoke;
-  border-radius: 0 0 5px 5px;
 }
 
 nav button {
@@ -38,7 +38,7 @@ nav button:active {
 nav i {
   font-size: 30px;
   position: absolute;
-  left: 2vh;
+  left: 5vh;
   top: 2vh;
 }
 
