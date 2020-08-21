@@ -5,13 +5,25 @@
 }
 
 nav {
+  /* text-align: right; */
   height: 7vh;
   position: fixed;
   top: 0;
   width: 90vw;
   margin: auto;
-  background-color: lightgrey;
+  background-color: whitesmoke;
   border-radius: 0 0 5px 5px;
+}
+
+nav button {
+  margin: 5px 10px;
+}
+
+nav i {
+  font-size: 30px;
+  position: absolute;
+  left: 2vh;
+  top: 2vh;
 }
 
 body {
@@ -49,7 +61,7 @@ body {
 }
 
 button {
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
   border: none;
   background-color: lightgrey;
