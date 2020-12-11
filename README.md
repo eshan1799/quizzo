@@ -1,20 +1,14 @@
-# React Boilerplate
+# Trivia Boss
 
-## Run Instructions
+## Run Deployed Version
+- Open [this link](https://trivia-boss.netlify.app/)
+## Run Local Version
 
-- Click "Use this template" at the top of this repo
-- Follow repo setup instructions
-- Clone new repo to machine
-- In new repo run `npm install`
+- Fork and clone new repo to machine
+- In new repo run `npm install` (only first time) 
 - In new repo run `npm start`
 
-## Daily Standups
-
-### Monday
-Everyone had a chill weekend, Lookings forward to quiz
-
-Notes: 
-- Add "Leading player name" toggle option to bottom of screen later on
-- Add regular "Pub Quiz" functionality later
-- Add option to globally choose number of questions for quiz
-- Add option to review quiz and display questions and answers 
+## Known Bugs
+- Not optimised for mobile devices/ narrower screens
+- If the there aren't enough questions for a chosen topic in the external API database, quiz crashes without informing user and requires restarting from home page
+- Home button in navbar doesn't redirect to top of home page until a quiz has been started
